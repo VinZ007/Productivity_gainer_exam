@@ -50,21 +50,21 @@ body {
 }
 
 .page {
-    padding: 40px;
+    padding: 30px;
     background: linear-gradient(to bottom, #1e4730 0%, #1a3c2f 100%);
     position: relative;
     min-height: 600px;
 }
 
 .page_sea {
-    padding: 40px;
+    padding: 30px;
     background: linear-gradient(to bottom, #0a2463 0%, #1e3a8a 100%);
     position: relative;
     min-height: 600px;
 }
 
 .page_run {
-    padding: 40px;
+    padding: 30px;
     background: linear-gradient(to bottom, #8417a89e 0%, #C60021 100%);
     position: relative;
     min-height: 600px;
@@ -721,6 +721,11 @@ body {
     font-size: 1.3rem;
     font-weight: 500;
 }
+.selected-plant-display-sea p {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
 .selected-plant-display-run p {
     color: #ffffff;
     font-size: 1.3rem;
@@ -753,25 +758,23 @@ body {
 
 
 @media (max-width: 768px) {
-    .page {
+    .page,
+    .page_sea,
+    .page_run{
         padding: 25px;
     }
 
-    .timer_title h1 {
+    .timer_title h1,
+    .timer_title_sea h1,
+    .timer_title_run h1 {
         font-size: 2.2rem;
     }
 
-    .timechoose {
+    .timechoose, .timechoose_sea, .timechoose_run {
         gap: 15px;
     }
 
-    .timechoose button {
-        width: 90px;
-        height: 55px;
-        font-size: 1.2rem;
-    }
-
-    .timer_clock {
+    .timer_clock,.timer_clock_sea,.timer_clock_run{
         font-size: 4rem;
         padding: 15px 50px;
     }
@@ -790,7 +793,7 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .modal-content {
+    .modal-content,.modal-content-sea ,.modal-content-run {
         width: 95%;
     }
 }
@@ -800,32 +803,26 @@ body {
         padding: 10px;
     }
 
-    .page {
+    .page,
+    .page_sea,
+    .page_run {
         padding: 20px;
     }
 
-    .timer_title h1 {
-        font-size: 1.8rem;
+    .timer_title,
+    .timer_title_sea,
+    .timer_title_run h1  {
+        font-size: 0.5rem;
     }
 
-    .timer_clock {
-        font-size: 4rem;
+    .timer_clock, .timer_clock_sea, .timer_clock_run{
+        font-size: 3rem;
         padding: 15px 50px;
     }
 
     .plant_container {
-        width: 300px;
-        height: 300px;
-    }
-
-    .timechoose {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .timechoose button {
-        width: 100%;
-        max-width: 200px;
+        width: 100px;
+        height: 100px;
     }
 
     .timer_time {
@@ -842,7 +839,7 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .modal-header h2 {
+    .modal-header ,.modal-header-sea ,.modal-header-run h2 {
         font-size: 1.8rem;
     }
 }

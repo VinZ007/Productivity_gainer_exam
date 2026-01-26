@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+
+    
+
+}
+input{
+    float: right;
+    margin-top: 5px;
+}
+div{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+button{
+    background-color: rgb(147, 194, 16);
+    padding: 6px;
+    border: 1px solid greenyellow;
+    border-radius: 8px;
+
+}
+.btn{
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(138, 4, 4);
+}
