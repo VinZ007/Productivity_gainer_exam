@@ -19,6 +19,7 @@ const selplant = document.getElementById('selplant');
 const timertitle = document.getElementById('timer-title');
 const sidemenu = document.getElementById('menu_content');
 const menuhandler = document.getElementById('menu_handle');
+const handlearrow = document.querySelectorAll('.menu_handle i');
 let currentMusic = null;
 let totalSeconds = 1800;
 let initialTime = 1800;
@@ -66,10 +67,14 @@ function MenuVisibility(){
     if(!menuvisible){
         sidemenu.style.display = 'flex';
         menuvisible = true;
+        handlearrow[0].style.display = 'none';
+        handlearrow[1].style.display = 'block';
     }
     else{
         sidemenu.style.display = 'none';
         menuvisible = false;
+        handlearrow[1].style.display = 'none';
+        handlearrow[0].style.display = 'block';
     }
 }
 menuhandler.addEventListener("click", MenuVisibility);
