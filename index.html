@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productivity Gainer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body class="hide-scrollbar">
     <div class="wrapper wrapper_sea wrapper_run" id="wrapper">
@@ -76,6 +77,18 @@
             <audio id="yellowmusic" loop  type="audio/mp3" src="music/MyClematis.mp3"></audio>
             <audio id="runningman" loop type="audio/mp3" src="music/all_in.mp3"></audio>
         </main>
+    </div>
+    <div class="menu">
+        <div class="menu_handle" id="menu_handle">
+            <i class="bi bi-arrow-left-circle" ></i>
+        </div>
+        <div class="menu_content" id="menu_content">
+            <!--<button>Me</button>-->
+            <button onclick="window.location.href='login.html'">Sing In</button>
+            <button onclick="window.location.href='authorization.html'">Sing Up</button>
+            <button>Night Mode</button>
+        </div>
+        
     </div>
     <script src="script.js"></script>
 </body>

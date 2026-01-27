@@ -17,12 +17,15 @@ const modalcont = document.getElementById('modalcontant');
 const modalhead = document.getElementById('modalhead');
 const selplant = document.getElementById('selplant');
 const timertitle = document.getElementById('timer-title');
+const sidemenu = document.getElementById('menu_content');
+const menuhandler = document.getElementById('menu_handle');
 let currentMusic = null;
 let totalSeconds = 1800;
 let initialTime = 1800;
 let timerInterval = null;
 let isRunning = false;
 let selectedPlant = null;
+let menuvisible = false;
 //seastones
 timertitle.classList.remove('timer_title_sea');
 wrapper.classList.remove('wrapper_sea');
@@ -59,6 +62,17 @@ const PlantMusicDictionary = {
     running: document.getElementById('runningman')
 };
 
+function MenuVisibility(){
+    if(!menuvisible){
+        sidemenu.style.display = 'flex';
+        menuvisible = true;
+    }
+    else{
+        sidemenu.style.display = 'none';
+        menuvisible = false;
+    }
+}
+menuhandler.addEventListener("click", MenuVisibility);
 function updateTimerDisplay() {
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
