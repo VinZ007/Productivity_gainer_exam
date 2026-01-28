@@ -824,27 +824,19 @@ body {
 @media (max-width: 1024px),
 (max-height:832px) {
 
-    .page,
-    .page_sea,
-    .page_run {
+    .page,.page_sea,.page_run {
         padding: 20px;
     }
 
-    .timer_title h1,
-    .timer_title_sea h1,
-    .timer_title_run h1 {
+    .timer_title h1,.timer_title_sea h1,.timer_title_run h1{
         font-size: 2.2rem;
     }
 
-    .timechoose,
-    .timechoose_sea,
-    .timechoose_run {
+    .timechoose,.timechoose_sea,.timechoose_run button{
         gap: 15px;
     }
 
-    .timer_clock,
-    .timer_clock_sea,
-    .timer_clock_run {
+    .timer_clock,.timer_clock_sea,.timer_clock_run {
         font-size: 2.7rem;
         padding: 15px 35px;
     }
@@ -863,9 +855,7 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .modal-content,
-    .modal-content-sea,
-    .modal-content-run {
+    .modal-content,.modal-content-sea,.modal-content-run{
         width: 95%;
     }
 }
@@ -874,33 +864,29 @@ body {
 @media (max-width: 768px),
 ((max-height:832px)) {
 
-    .wrapper,
-    .wrapper_run,
-    .wrapper_sea {
+    
+    
+    .wrapper,.wrapper_run,.wrapper_sea {
         height: 70%;
     }
 
-    .page,
-    .page_sea,
-    .page_run {
+    .page,.page_sea,.page_run{
         padding: 25px;
     }
 
-    .timer_title h1,
-    .timer_title_sea h1,
-    .timer_title_run h1 {
+    .timer_title h1,.timer_title_sea h1,.timer_title_run h1 {
         font-size: 2.2rem;
     }
 
-    .timechoose,
-    .timechoose_sea,
-    .timechoose_run {
+    
+    
+    .timechoose,.timechoose_sea,.timechoose_run {
         gap: 15px;
     }
 
-    .timer_clock,
-    .timer_clock_sea,
-    .timer_clock_run {
+    
+    
+    .timer_clock,.timer_clock_sea,.timer_clock_run {
         font-size: 2.7rem;
         padding: 15px 40px;
     }
@@ -919,9 +905,9 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .modal-content,
-    .modal-content-sea,
-    .modal-content-run {
+    
+    
+    .modal-content,.modal-content-sea,.modal-content-run {
         width: 88%;
     }
 }
@@ -931,35 +917,37 @@ body {
         padding: 10px;
     }
 
-    .page,
-    .page_sea,
-    .page_run {
+    
+    
+    .page,.page_sea,.page_run {
         padding: 20px;
     }
 
-    .timer_title,
-    .timer_title_sea,
-    .timer_title_run h1 {
-        font-size: 0.2rem;
+    
+    
+    .timer_title h1,.timer_title_sea h1,.timer_title_run h1 {
+        font-size: 2rem;
     }
 
-    .timer_clock,
-    .timer_clock_sea,
-    .timer_clock_run {
+    
+    
+    .timer_clock,.timer_clock_sea,.timer_clock_run {
         font-size: 2rem;
         padding: 8px 90px;
     }
 
-    .timechoose,
-    .timechoose_sea,
-    .timechoose_run button {
-        font-size: 0.2rem;
-        font-weight: 300;
+    
+    
+    .timechoose button,.timechoose_sea button,.timechoose_run button {
+        font-size: 1rem;
+        width: 90px;
+    height: 50px;
+        
     }
 
-    .plant,
-    .plant_run,
-    .plant_sea {
+    
+    
+    .plant,.plant_run,.plant_sea {
         font-size: 1rem;
         font-weight: 300;
 
@@ -984,15 +972,15 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .modal-header,
-    .modal-header-sea,
-    .modal-header-run h2 {
+    
+    
+    .modal-header h2,.modal-header-sea h2,.modal-header-run h2 {
         font-size: 1.8rem;
     }
 
-    .modal-content,
-    .modal-content-sea,
-    .modal-content-run {
+    
+    
+    .modal-content,.modal-content-sea,.modal-content-run {
         width: 77%;
     }
 }
@@ -1006,21 +994,15 @@ body {
         padding: 10px;
     }
 
-    .page,
-    .page_sea,
-    .page_run {
+    .page,.page_sea,.page_run {
         padding: 20px;
     }
 
-    .timer_title,
-    .timer_title_sea,
-    .timer_title_run h1 {
+    .timer_title h1,.timer_title_sea h1,.timer_title_run h1 {
         font-size: 0.5rem;
     }
 
-    .timer_clock,
-    .timer_clock_sea,
-    .timer_clock_run {
+     .timer_clock,.timer_clock_sea,.timer_clock_run {
         font-size: 3rem;
         padding: 15px 50px;
     }
@@ -1044,9 +1026,9 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .modal-header,
-    .modal-header-sea,
-    .modal-header-run h2 {
+    
+    
+    .modal-header h2,.modal-header-sea h2,.modal-header-run h2 {
         font-size: 1.8rem;
     }
 }
