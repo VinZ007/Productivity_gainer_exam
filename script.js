@@ -27,32 +27,23 @@ let timerInterval = null;
 let isRunning = false;
 let selectedPlant = null;
 let menuvisible = false;
+//narcissus
+let narcissusVisual = ['timer_title', 'wrapper', 'selected-plant-display', 'page', 'modal-header', 'modal-content', 'timechoose', 'plant', 'timer_clock', 'plant-option', 'plant-option', 'plant-option'];
 //seastones
-timertitle.classList.remove('timer_title_sea');
-wrapper.classList.remove('wrapper_sea');
-page.classList.remove('page_sea');
-selplant.classList.remove('selected-plant-display-sea');
-modalhead.classList.remove('modal-header-sea');
-modalcont.classList.remove('modal-content-sea');
-timerchoose.classList.remove('timechoose_sea');
-choosewidjet.classList.remove('plant_sea');
-timerDisplay.classList.remove('timer_clock_sea');
-plantOptions[0].classList.remove('plant-option-sea');
-plantOptions[1].classList.remove('plant-option-sea');
-plantOptions[2].classList.remove('plant-option-sea');
+let seastonesVisual = ['timer_title_sea', 'wrapper_sea', 'selected-plant-display-sea', 'page_sea', 'modal-header-sea', 'modal-content-sea', 'timechoose_sea', 'plant_sea', 'timer_clock_sea', 'plant-option-sea', 'plant-option-sea', 'plant-option-sea'];
+let themeObjects = [timertitle, wrapper, selplant, page, modalhead, modalcont, timerchoose, choosewidjet, timerDisplay, plantOptions[0], plantOptions[1], plantOptions[2]];
+for (let i = 0; i < seastonesVisual.length; i++) {
+    themeObjects[i].classList.remove(seastonesVisual[i]);
+
+}
+
+
 //running man
-timertitle.classList.remove('timer_title_run');
-wrapper.classList.remove('wrapper_run');
-page.classList.remove('page_run');
-selplant.classList.remove('selected-plant-display-run');
-modalhead.classList.remove('modal-header-run');
-modalcont.classList.remove('modal-content-run');
-timerchoose.classList.remove('timechoose_run');
-choosewidjet.classList.remove('plant_run');
-timerDisplay.classList.remove('timer_clock_run');
-plantOptions[0].classList.remove('plant-option-run');
-plantOptions[1].classList.remove('plant-option-run');
-plantOptions[2].classList.remove('plant-option-run');
+let runningmanVisual = ['timer_title_run', 'wrapper_run', 'selected-plant-display-run', 'page_run', 'modal-header-run', 'modal-content-run', 'timechoose_run', 'plant_run', 'timer_clock_run', 'plant-option-run', 'plant-option-run', 'plant-option-run'];
+for (let i = 0; i < seastonesVisual.length; i++) {
+    themeObjects[i].classList.remove(runningmanVisual[i]);
+
+}
 updateTimerDisplay();
 updatePlantStage();
 timeButtons[2].classList.add('active');
@@ -63,14 +54,14 @@ const PlantMusicDictionary = {
     running: document.getElementById('runningman')
 };
 
-function MenuVisibility(){
-    if(!menuvisible){
+function MenuVisibility() {
+    if (!menuvisible) {
         sidemenu.style.display = 'flex';
         menuvisible = true;
         handlearrow[0].style.display = 'none';
         handlearrow[1].style.display = 'block';
     }
-    else{
+    else {
         sidemenu.style.display = 'none';
         menuvisible = false;
         handlearrow[1].style.display = 'none';
@@ -140,136 +131,62 @@ function PlayMusic(plantType) {
 }
 function changeTheme(plantType) {
     if (plantType == 'seastones') {
-        timertitle.classList.remove('timer_title');
-        timertitle.classList.remove('timer_title_run');
-        timertitle.classList.add('timer_title_sea');
-        wrapper.classList.remove('wrapper_run');
-        page.classList.remove('page_run');
-        selplant.classList.remove('selected-plant-display-run');
-        modalhead.classList.remove('modal-header-run');
-        modalcont.classList.remove('modal-content-run');
-        timerchoose.classList.remove('timechoose_run');
-        choosewidjet.classList.remove('plant_run');
-        timerDisplay.classList.remove('timer_clock_run');
-        plantOptions[0].classList.remove('plant-option-run');
-        plantOptions[1].classList.remove('plant-option-run');
-        plantOptions[2].classList.remove('plant-option-run');
+        for (let i = 0; i < seastonesVisual.length; i++) {
+            themeObjects[i].classList.remove(runningmanVisual[i]);
+
+        }
+        for (let i = 0; i < seastonesVisual.length; i++) {
+            themeObjects[i].classList.remove(narcissusVisual[i]);
+
+        }
+        for (let i = 0; i < seastonesVisual.length; i++) {
+            themeObjects[i].classList.add(seastonesVisual[i]);
+
+        }
         document.body.style.background = '#0c2159ff';
         startBtn.style.background = 'linear-gradient(180deg,  #0090b4ff 0%, #00FFDE 100%)';
         stopBtn.style.background = 'linear-gradient(180deg,  #0065F8 0%, #00CAFF 100%)';
         resetBtn.style.background = 'linear-gradient(180deg,  #0065F8 0%, #6d3df2ff 100%)'; //#00FFDE #00CAFF #4300FF #0065F8
-        wrapper.classList.remove('wrapper');
-        wrapper.classList.add('wrapper_sea');
-        page.classList.remove('page');
-        page.classList.add('page_sea');
-        timerchoose.classList.remove('timechoose');
-        timerchoose.classList.add('timechoose_sea');
-        choosewidjet.classList.remove('plant');
-        choosewidjet.classList.add('plant_sea');
-        timerDisplay.classList.remove('timer_clock');
-        timerDisplay.classList.add('timer_clock_sea');
-        plantOptions[0].classList.remove('plant-option');
-        plantOptions[1].classList.remove('plant-option');
-        plantOptions[2].classList.remove('plant-option');
-        plantOptions[0].classList.add('plant-option-sea');
-        plantOptions[1].classList.add('plant-option-sea');
-        plantOptions[2].classList.add('plant-option-sea');
-        modalcont.classList.remove('modal-content');
-        modalcont.classList.add('modal-content-sea');
-        modalhead.classList.remove('modal-header');
-        modalhead.classList.add('modal-header-sea');
-        selplant.classList.remove('selected-plant-display');
-        selplant.classList.add('selected-plant-display-sea');
-        //// plantOptions.classList.remove('plant-option');
-        //plantOptions.classList.add('plant-option-sea');
+
+
     }
     else if (plantType == 'narcissus') {
+        for (let i = 0; i < seastonesVisual.length; i++) {
+            themeObjects[i].classList.remove(runningmanVisual[i]);
+
+        }
+        for (let i = 0; i < seastonesVisual.length; i++) {
+            themeObjects[i].classList.remove(seastonesVisual[i]);
+
+        }
+        for (let i = 0; i < seastonesVisual.length; i++) {
+            themeObjects[i].classList.add(narcissusVisual[i]);
+
+        }
         document.body.style.background = 'linear-gradient(135deg, #0c291f 0%, #143727 100%)';
         startBtn.style.background = 'linear-gradient(180deg, #2e7d4d 0%, #266d41 100%)';
         stopBtn.style.background = 'linear-gradient(180deg, #5d4037 0%, #4e342e 100%)';
         resetBtn.style.background = 'linear-gradient(180deg, #2d5a42 0%, #234735 100%)';
-        timertitle.classList.remove('timer_title_sea');
-        timertitle.classList.remove('timer_title_run');
-        timertitle.classList.add('timer_title');
-        wrapper.classList.remove('wrapper_run');
-        page.classList.remove('page_run');
-        selplant.classList.remove('selected-plant-display-run');
-        modalhead.classList.remove('modal-header-run');
-        modalcont.classList.remove('modal-content-run');
-        timerchoose.classList.remove('timechoose_run');
-        choosewidjet.classList.remove('plant_run');
-        timerDisplay.classList.remove('timer_clock_run');
-        plantOptions[0].classList.remove('plant-option-run');
-        plantOptions[1].classList.remove('plant-option-run');
-        plantOptions[2].classList.remove('plant-option-run');
-        wrapper.classList.add('wrapper');
-        wrapper.classList.remove('wrapper_sea');
-        page.classList.add('page');
-        page.classList.remove('page_sea');
-        timerchoose.classList.add('timechoose');
-        timerchoose.classList.remove('timechoose_sea');
-        choosewidjet.classList.add('plant');
-        choosewidjet.classList.remove('plant_sea');
-        timerDisplay.classList.add('timer_clock');
-        timerDisplay.classList.remove('timer_clock_sea');
-        plantOptions[0].classList.remove('plant-option-sea');
-        plantOptions[1].classList.remove('plant-option-sea');
-        plantOptions[2].classList.remove('plant-option-sea');
-        // plantOptions.classList.remove('plant-option-sea');
-        plantOptions[0].classList.add('plant-option');
-        plantOptions[1].classList.add('plant-option');
-        plantOptions[2].classList.add('plant-option');
-        modalcont.classList.remove('modal-content-sea');
-        modalcont.classList.add('modal-content');
-        modalhead.classList.remove('modal-header-sea');
-        modalhead.classList.add('modal-header');
-        selplant.classList.remove('selected-plant-display-sea');
-        selplant.classList.add('selected-plant-display');
 
     }
     else if (plantType == 'running') {
-        timertitle.classList.remove('timer_title_sea');
-        wrapper.classList.remove('wrapper_sea');
-        page.classList.remove('page_sea');
-        selplant.classList.remove('selected-plant-display-sea');
-        modalhead.classList.remove('modal-header-sea');
-        modalcont.classList.remove('modal-content-sea');
-        timerchoose.classList.remove('timechoose_sea');
-        choosewidjet.classList.remove('plant_sea');
-        timerDisplay.classList.remove('timer_clock_sea');
-        plantOptions[0].classList.remove('plant-option-sea');
-        plantOptions[1].classList.remove('plant-option-sea');
-        plantOptions[2].classList.remove('plant-option-sea');
-        timertitle.classList.remove('timer_title');
+        for (let i = 0; i < seastonesVisual.length; i++) {
+            themeObjects[i].classList.add(runningmanVisual[i]);
 
-        timertitle.classList.add('timer_title_run');
+        }
+        for (let i = 0; i < seastonesVisual.length; i++) {
+            themeObjects[i].classList.remove(seastonesVisual[i]);
+
+        }
+        for (let i = 0; i < seastonesVisual.length; i++) {
+            themeObjects[i].classList.remove(narcissusVisual[i]);
+
+        }
         document.body.style.background = 'linear-gradient(180deg,  #f8e300f3 0%, #ff6600ff 100%)';
         startBtn.style.background = 'linear-gradient(180deg,  #6700f83f 0%, #ff6600ff 100%)';
         stopBtn.style.background = 'linear-gradient(180deg,  #6700f82d 0%, #ff6600ff 100%)';
         resetBtn.style.background = 'linear-gradient(180deg,  #6700f879 0%, #f2643dff 100%)'; //#00FFDE #00CAFF #4300FF #0065F8
-        wrapper.classList.remove('wrapper');
-        wrapper.classList.add('wrapper_run');
-        page.classList.remove('page');
-        page.classList.add('page_run');
-        timerchoose.classList.remove('timechoose');
-        timerchoose.classList.add('timechoose_run');
-        choosewidjet.classList.remove('plant');
-        choosewidjet.classList.add('plant_run');
-        timerDisplay.classList.remove('timer_clock');
 
-        timerDisplay.classList.add('timer_clock_run');
-        plantOptions[0].classList.remove('plant-option');
-        plantOptions[1].classList.remove('plant-option');
-        plantOptions[2].classList.remove('plant-option');
-        plantOptions[0].classList.add('plant-option-run');
-        plantOptions[1].classList.add('plant-option-run');
-        plantOptions[2].classList.add('plant-option-run');
-        modalcont.classList.remove('modal-content');
-        modalcont.classList.add('modal-content-run');
-        modalhead.classList.remove('modal-header');
-        modalhead.classList.add('modal-header-run');
-        selplant.classList.remove('selected-plant-display');
-        selplant.classList.add('selected-plant-display-run');
 
     }
 }
@@ -281,6 +198,9 @@ function startTimer() {
 
     if (selectedPlant) {
         PlayMusic(selectedPlant);
+    }
+    else {
+        alert("Выберите режим");
     }
 
     timerInterval = setInterval(() => {
