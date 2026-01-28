@@ -38,7 +38,7 @@ body {
     cursor: pointer;
     transition: background 0.3s;
     padding: 20px 0;
-    
+
 }
 
 .menu_content {
@@ -49,11 +49,11 @@ body {
     width: 300px;
     height: 100%;
     transition: transform 0.3s ease, opacity 0.3s ease;
-  
+
 }
 
-.menu_content button{
-     border: 2px solid #3d5a2c;
+.menu_content button {
+    border: 2px solid #3d5a2c;
     margin-top: 20px;
     border-radius: 12px;
     padding: 10px;
@@ -64,7 +64,7 @@ body {
 
 }
 
-.menu_content button:hover{
+.menu_content button:hover {
     border-color: #4caf50;
     box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
@@ -821,8 +821,64 @@ body {
     }
 }
 
+@media (max-width: 1024px),
+(max-height:832px) {
 
-@media (max-width: 768px) {
+    .page,
+    .page_sea,
+    .page_run {
+        padding: 20px;
+    }
+
+    .timer_title h1,
+    .timer_title_sea h1,
+    .timer_title_run h1 {
+        font-size: 2.2rem;
+    }
+
+    .timechoose,
+    .timechoose_sea,
+    .timechoose_run {
+        gap: 15px;
+    }
+
+    .timer_clock,
+    .timer_clock_sea,
+    .timer_clock_run {
+        font-size: 2.7rem;
+        padding: 15px 35px;
+    }
+
+    .plant_container {
+        width: 250px;
+        height: 250px;
+    }
+
+    .timer_time button {
+        width: 65px;
+        height: 65px;
+    }
+
+    .plant-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-content,
+    .modal-content-sea,
+    .modal-content-run {
+        width: 95%;
+    }
+}
+
+
+@media (max-width: 768px),
+((max-height:832px)) {
+
+    .wrapper,
+    .wrapper_run,
+    .wrapper_sea {
+        height: 70%;
+    }
 
     .page,
     .page_sea,
@@ -845,13 +901,13 @@ body {
     .timer_clock,
     .timer_clock_sea,
     .timer_clock_run {
-        font-size: 4rem;
-        padding: 15px 50px;
+        font-size: 2.7rem;
+        padding: 15px 40px;
     }
 
     .plant_container {
-        width: 300px;
-        height: 300px;
+        width: 250px;
+        height: 250px;
     }
 
     .timer_time button {
@@ -866,11 +922,86 @@ body {
     .modal-content,
     .modal-content-sea,
     .modal-content-run {
-        width: 95%;
+        width: 88%;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 425px) {
+    body {
+        padding: 10px;
+    }
+
+    .page,
+    .page_sea,
+    .page_run {
+        padding: 20px;
+    }
+
+    .timer_title,
+    .timer_title_sea,
+    .timer_title_run h1 {
+        font-size: 0.2rem;
+    }
+
+    .timer_clock,
+    .timer_clock_sea,
+    .timer_clock_run {
+        font-size: 2rem;
+        padding: 8px 90px;
+    }
+
+    .timechoose,
+    .timechoose_sea,
+    .timechoose_run button {
+        font-size: 0.2rem;
+        font-weight: 300;
+    }
+
+    .plant,
+    .plant_run,
+    .plant_sea {
+        font-size: 1rem;
+        font-weight: 300;
+
+    }
+
+    .plant_container {
+        width: 200px;
+        height: 200px;
+    }
+
+    .timer_time {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .timer_time button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .plant-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-header,
+    .modal-header-sea,
+    .modal-header-run h2 {
+        font-size: 1.8rem;
+    }
+
+    .modal-content,
+    .modal-content-sea,
+    .modal-content-run {
+        width: 77%;
+    }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 270px) {
     body {
         padding: 10px;
     }
@@ -918,8 +1049,4 @@ body {
     .modal-header-run h2 {
         font-size: 1.8rem;
     }
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-    display: none;
 }
