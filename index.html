@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productivity Gainer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modalPlant.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body class="hide-scrollbar">
@@ -41,37 +42,68 @@
             </div>
             
             <!-- Модальное окно для выбора растения -->
-            <div id="plantModal" class="modal">
+            <dialog id="plantModal" class="hide-scrollbar modal">
                 <div class="modal-content modal-content-sea modal-content-run" id="modalcontant">
-                    <div class="modal-header modal-header-sea modal-header-run" id="modalhead">
+                    <header class="modal-header modal-header-sea modal-header-run" id="modalhead">
                         <h2>Choose Your Widget</h2>
                         <span class="close-modal">&times;</span>
-                    </div>
+                    </header>
                     <div class="modal-body">
+                        <h3>Choose Widget</h3>
                         <div class="plant-grid">
-                            <div class="plant-option plant-option-sea plant-option-run" data-plant="narcissus">
+                            
+                            <div class="plant-option plant-option-sea plant-option-run widget-option" data-widget="narcissus">
                                 <div class="plant-icon">🌼</div>
                                 <h3>Narcissus</h3>
-                                <p>Ruler Of My Heart</p>
+                                <p>Нарцисс</p>
                             </div>
-                            <div class="plant-option plant-option-sea plant-option-run" data-plant="seastones">
+                            <div class="plant-option plant-option-sea plant-option-run widget-option" data-widget="seastones">
                                 <div class="plant-icon">🌊</div>
                                 <h3>Sea Stones</h3>
-                                <p>My Clematis</p>
+                                <p>Морские камни</p>
                             </div>
-                            <div class="plant-option plant-option-sea plant-option-run" data-plant="running">
+                            <div class="plant-option plant-option-sea plant-option-run widget-option" data-widget="running">
                                 <div class="plant-icon">🧍🏻‍♂️</div>
                                 <h3>Running Guy</h3>
-                                <p>All-in</p>
+                                <p>Бегущий человек</p>
+                            </div>
+                        </div>
+                        <h3>Choose Music</h3>
+                        <div class="plant-grid">
+                            
+                            <div class="music-option-sea music-option-run music-option" data-music="narcissus">
+                                <div class="music-icon">🎵</div>
+                                <h3>Ruler Of My Heart</h3>
+                                <p>Рекомендуется для Narcissus</p>
+                            </div>
+                            <div class="music-option-sea music-option-run music-option" data-music="seastones">
+                                <div class="music-icon">🎶</div>
+                                <h3>My Clematis</h3>
+                                <p>Рекомендуется для Sea Stones</p>
+                            </div>
+                            <div class="music-option-sea music-option-run music-option" data-music="running">
+                                <div class="music-icon">🎸</div>
+                                <h3>All-in</h3>
+                                <p>Рекомендуется для Running Guy</p>
+                            </div>
+                            <div class="music-option-sea music-option-run music-option" data-music="custom">
+                                <div class="music-icon">📁</div>
+                                <h3>Своя музыка</h3>
+                                <p>Загрузите MP3 файл</p>
                             </div>
                             
                         </div>
-                        <div class="selected-plant-display selected-plant-display-sea selected-plant-display-run" id="selplant">
-                            <p>Selected: <span id="selectedPlant">None</span></p>
+                        <div class="customMusicUpload" id="customMusicUpload">
+                            <input type="file" name="" id="customMusicInput" class="customMusicInput">
+                            <p>Максимальный размер 10 МБ</p>
                         </div>
+                        <div class="selected-plant-display selected-plant-display-sea selected-plant-display-run" id="selplant">
+                            <p>Widget: <span id="selectedPlant">None</span>, Song: <span id="selectedMusic">None</span></p>
+                        </div>
+                        <button onclick="" id="ApplySelection" class="ApplySelection">Apply Selection</button>
                     </div>
                 </div>
-            </div>
+            </dialog>
             
             <audio id="narcissusmusic" loop type="audio/mp3" src="music/Ruler_Of_My_Heart.mp3"></audio>
             <audio id="yellowmusic" loop  type="audio/mp3" src="music/MyClematis.mp3"></audio>
@@ -84,13 +116,16 @@
             <i class="bi bi-arrow-right-circle" style="display: none;"></i>
         </div>
         <div class="menu_content" id="menu_content">
-            <!--<button>Me</button>-->
+            
             <button onclick="window.location.href='login.html'">Sing In</button>
             <button onclick="window.location.href='authorization.html'">Sing Up</button>
             <button>Night Mode</button>
         </div>
         
     </div>
+
+    <footer>© 2026 VinZ | 1 COURSE | BSTU</footer>
     <script src="script.js"></script>
+    <script src="modal-manager.js"></script>
 </body>
 </html>

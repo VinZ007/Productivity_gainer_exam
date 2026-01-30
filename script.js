@@ -7,7 +7,9 @@ const openPlantModalBtn = document.getElementById('openPlantModal');
 const plantModal = document.getElementById('plantModal');
 const closeModalBtn = document.querySelector('.close-modal');
 const plantOptions = document.querySelectorAll('.plant-option');
+const musicOptions = document.querySelectorAll('.music-option');
 const selectedPlantSpan = document.getElementById('selectedPlant');
+const selectedMusicSpan = document.getElementById('selectedMusic');
 const plantStages = document.querySelectorAll('.plant_stage');
 const wrapper = document.getElementById('wrapper');
 const page = document.getElementById('page');
@@ -26,12 +28,13 @@ let initialTime = 1800;
 let timerInterval = null;
 let isRunning = false;
 let selectedPlant = null;
+let selectedMusic = null;
 let menuvisible = false;
 //narcissus
-let narcissusVisual = ['timer_title', 'wrapper', 'selected-plant-display', 'page', 'modal-header', 'modal-content', 'timechoose', 'plant', 'timer_clock', 'plant-option', 'plant-option', 'plant-option'];
+let narcissusVisual = ['timer_title', 'wrapper', 'selected-plant-display', 'page', 'modal-header', 'modal-content', 'timechoose', 'plant', 'timer_clock', 'plant-option', 'plant-option', 'plant-option', 'music-option', 'music-option', 'music-option', 'music-option'];
 //seastones
-let seastonesVisual = ['timer_title_sea', 'wrapper_sea', 'selected-plant-display-sea', 'page_sea', 'modal-header-sea', 'modal-content-sea', 'timechoose_sea', 'plant_sea', 'timer_clock_sea', 'plant-option-sea', 'plant-option-sea', 'plant-option-sea'];
-let themeObjects = [timertitle, wrapper, selplant, page, modalhead, modalcont, timerchoose, choosewidjet, timerDisplay, plantOptions[0], plantOptions[1], plantOptions[2]];
+let seastonesVisual = ['timer_title_sea', 'wrapper_sea', 'selected-plant-display-sea', 'page_sea', 'modal-header-sea', 'modal-content-sea', 'timechoose_sea', 'plant_sea', 'timer_clock_sea', 'plant-option-sea', 'plant-option-sea', 'plant-option-sea', 'music-option-sea', 'music-option-sea', 'music-option-sea', 'music-option-sea'];
+let themeObjects = [timertitle, wrapper, selplant, page, modalhead, modalcont, timerchoose, choosewidjet, timerDisplay, plantOptions[0], plantOptions[1], plantOptions[2], musicOptions[0], musicOptions[1], musicOptions[2], musicOptions[3]];
 for (let i = 0; i < seastonesVisual.length; i++) {
     themeObjects[i].classList.remove(seastonesVisual[i]);
 
@@ -39,7 +42,7 @@ for (let i = 0; i < seastonesVisual.length; i++) {
 
 
 //running man
-let runningmanVisual = ['timer_title_run', 'wrapper_run', 'selected-plant-display-run', 'page_run', 'modal-header-run', 'modal-content-run', 'timechoose_run', 'plant_run', 'timer_clock_run', 'plant-option-run', 'plant-option-run', 'plant-option-run'];
+let runningmanVisual = ['timer_title_run', 'wrapper_run', 'selected-plant-display-run', 'page_run', 'modal-header-run', 'modal-content-run', 'timechoose_run', 'plant_run', 'timer_clock_run', 'plant-option-run', 'plant-option-run', 'plant-option-run', 'music-option-run', 'music-option-run', 'music-option-run', 'music-option-run'];
 for (let i = 0; i < seastonesVisual.length; i++) {
     themeObjects[i].classList.remove(runningmanVisual[i]);
 
@@ -104,6 +107,7 @@ function updatePlantStage() {
     activeStage.classList.add('active');
 }
 
+//Эту функцию надо полностью поменять
 function PlayMusic(plantType) {
     if (currentMusic) {
         currentMusic.pause();
@@ -284,7 +288,7 @@ window.addEventListener('click', function (event) {
         plantModal.style.display = 'none';
     }
 });
-
+/*
 plantOptions.forEach(option => {
     option.addEventListener('click', function () {
         plantOptions.forEach(opt => opt.classList.remove('selected'));
@@ -292,9 +296,11 @@ plantOptions.forEach(option => {
 
         selectedPlant = this.dataset.plant;
         const plantName = this.querySelector('h3').textContent;
-        selectedPlantSpan.textContent = plantName;
 
-        openPlantModalBtn.textContent = `${plantName} ✓`;
+        selectedPlantSpan.textContent = plantName;
+        selectedMusicSpan.textContent = MusicName;
+
+        openPlantModalBtn.textContent = `${plantName} + ${MusicName} ✓`;
 
         updatePlantImages(selectedPlant);
         PlayMusic(selectedPlant);
@@ -304,7 +310,7 @@ plantOptions.forEach(option => {
         }, 1000);
     });
 });
-
+*/
 function updatePlantImages(plantType) {
     const plantImages = {
         narcissus: [
