@@ -288,29 +288,7 @@ window.addEventListener('click', function (event) {
         plantModal.style.display = 'none';
     }
 });
-/*
-plantOptions.forEach(option => {
-    option.addEventListener('click', function () {
-        plantOptions.forEach(opt => opt.classList.remove('selected'));
-        this.classList.add('selected');
 
-        selectedPlant = this.dataset.plant;
-        const plantName = this.querySelector('h3').textContent;
-
-        selectedPlantSpan.textContent = plantName;
-        selectedMusicSpan.textContent = MusicName;
-
-        openPlantModalBtn.textContent = `${plantName} + ${MusicName} ✓`;
-
-        updatePlantImages(selectedPlant);
-        PlayMusic(selectedPlant);
-
-        setTimeout(() => {
-            plantModal.style.display = 'none';
-        }, 1000);
-    });
-});
-*/
 function updatePlantImages(plantType) {
     const plantImages = {
         narcissus: [
