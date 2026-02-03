@@ -16,33 +16,33 @@
         <label for="Username">Имя пользователя:</label>
         <div class="input">
             <i class="bi bi-person"></i>
-            <input type="text" placeholder="Имя пользователя" id="Username">
+            <input type="text" placeholder="Имя пользователя" id="username">
             
         </div>
         <label for="Email">Эл. почта:</label>
         <div class="input">
             <i class="bi bi-envelope-open"></i>
-            <input type="email" placeholder="Эл. почта" id="Email">
+            <input type="email" placeholder="Эл. почта" id="email" required>
             
         </div>
         <label for="Password">Пароль:</label>
         <div class="input">
             <i class="bi bi-key-fill"></i>
-            <input type="password" placeholder="Пароль" id="Password">
+            <input type="password" placeholder="Пароль" id="password" required>
             
         </div>
         <label for="Password">Повторите пароль:</label>
         <div class="input">
             <i class="bi bi-key-fill"></i>
             
-            <input type="password" placeholder="Повторите пароль" id="Password">
+            <input type="password" placeholder="Повторите пароль" id="passwordrepeat" required>
             
         </div>
         
         
 
         <div class="agree">
-            <input type="checkbox">
+            <input type="checkbox"  id="agreeTerms" required>
             <p>Я соглашаюсь с <a href="#" class="nounderline">Правилами Сервиса</a></p>
         </div>
         <button type="submit">Зарегестрироваться</button>
