@@ -8,36 +8,144 @@
     <link rel="stylesheet" href="account.css">
 </head>
 <body>
-    <button class="backbtn" onclick="window.location.href='Productivity_Gainer.html'"><i class="bi bi-box-arrow-left"></i>  Back To Main</button>
+    <button class="backbtn" onclick="window.location.href='Productivity_Gainer.html'"><i
+            class="bi bi-box-arrow-left"></i> Back To Main</button>
     <div class="container">
-        <div class="profilepic"><img src="" alt=""></div>
-        <div class="username">USERNAME</div>
-        <div class="banner"><img src="" alt=""></div>
-        <div class="main">
-            <div class="bio"></div>
-            <div class="statistics">
-                <h3>Productive Gainer:</h3>
-                <div class="PGStat">
-                    <div></div>
-                    <div></div>
-                    <div></div>
 
-                </div>
-                <h3>Sleep Helper:</h3>
-                <div class="SHStat">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <h3>Dark Mode:</h3>
-                <div class="DMStat">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
+
+        <article class="profile-card">
+            <header class="profile-banner" id="bannerContainer">
+                <img id="bannerImage" src="" alt="" style="display: none;">
+                <button class="banner-upload-btn" onclick="document.getElementById('bannerInput').click()"><i
+                        class="bi bi-camera"></i>Изменить баннер</button>
+                <input type="file" id="bannerInput" accept="image/*">
+            </header>
+
+            <div class="profile-header">
+                <figure class="avatar-container">
+                    <img id="avatarImage" src="" alt="Avatar">
+                    <button class="avatar-upload-btn" onclick="document.getElementById('avatarInput').click()"><i
+                            class="bi bi-camera"></i></button>
+                    <input type="file" id="avatarInput" accept="image/*">
+                </figure>
             </div>
+            <section class="profile-info">
+                <h1 class="profile-name" id="username">Loading...</h1>
+                <p class="profile-email" id="email">Loading...</p>
 
-        </div>
+                <section class="profile-bio">
+                    <div id="bioDisplay">
+                        <p class="bio-text" id="bioText">Расскажите о себе...</p>
+                        <button class="edit-bio-btn" onclick="toggleBioEdit()">
+                            <i class="bi bi-pencil"></i> Редактировать
+                        </button>
+                    </div>
+                    <div id="bioEdit" style="display: none;">
+                        <textarea class="bio-textarea" id="bioTextarea" placeholder="Расскажите о себе..."
+                            maxlength="500"></textarea>
+                        <button class="edit-bio-btn" onclick="saveBio()" style="margin-right: 10px;">
+                            <i class="bi bi-check-lg"></i> Сохранить
+                        </button>
+                        <button class="edit-bio-btn" onclick="cancelBioEdit()">
+                            <i class="bi bi-x-lg"></i> Отмена
+                        </button>
+                    </div>
+                </section>
+                <section>
+                    <h2 class="section-title">
+                        <i class="bi bi-graph-up"></i> Статистика активности
+                    </h2>
+                    <h3>Productive Gainer:</h3>
+                    <div class="stats-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                        <article class="stat-card"
+                            style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid #3d5a2c; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">🌼</div>
+                            <h3 style="color: #c8e6c9; font-size: 16px; margin-bottom: 8px;">Narcissus</h3>
+                            <p id="narcissusTime" style="color: #4caf50; font-size: 24px; font-weight: 700;">0:00</p>
+                        </article>
+                        <article class="stat-card"
+                            style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid #3d5a2c; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">🌊</div>
+                            <h3 style="color: #c8e6c9; font-size: 16px; margin-bottom: 8px;">Sea Stones</h3>
+                            <p id="seastonesTime" style="color: #00caff; font-size: 24px; font-weight: 700;">0:00</p>
+                        </article>
+                        <article class="stat-card"
+                            style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid #3d5a2c; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">🧑🏻‍♂️</div>
+                            <h3 style="color: #c8e6c9; font-size: 16px; margin-bottom: 8px;">Running Guy</h3>
+                            <p id="runningTime" style="color: #ff6600; font-size: 24px; font-weight: 700;">0:00</p>
+                        </article>
+                        <article class="stat-card"
+                            style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid #3d5a2c; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">✅</div>
+                            <h3 style="color: #c8e6c9; font-size: 16px; margin-bottom: 8px;">Всего сессий</h3>
+                            <p id="totalSessions" style="color: #81c784; font-size: 24px; font-weight: 700;">0</p>
+                        </article>
+
+                    </div>
+                    <h3>Sleep Helper:</h3>
+                    <div class="stats-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                        <article class="stat-card"
+                            style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid #3d5a2c; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">🌼</div>
+                            <h3 style="color: #c8e6c9; font-size: 16px; margin-bottom: 8px;">Narcissus</h3>
+                            <p id="narcissusTime" style="color: #4caf50; font-size: 24px; font-weight: 700;">0:00</p>
+                        </article>
+                        <article class="stat-card"
+                            style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid #3d5a2c; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">🌊</div>
+                            <h3 style="color: #c8e6c9; font-size: 16px; margin-bottom: 8px;">Sea Stones</h3>
+                            <p id="seastonesTime" style="color: #00caff; font-size: 24px; font-weight: 700;">0:00</p>
+                        </article>
+                        <article class="stat-card"
+                            style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid #3d5a2c; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">🧑🏻‍♂️</div>
+                            <h3 style="color: #c8e6c9; font-size: 16px; margin-bottom: 8px;">Running Guy</h3>
+                            <p id="runningTime" style="color: #ff6600; font-size: 24px; font-weight: 700;">0:00</p>
+                        </article>
+                        <article class="stat-card"
+                            style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid #3d5a2c; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">✅</div>
+                            <h3 style="color: #c8e6c9; font-size: 16px; margin-bottom: 8px;">Всего сессий</h3>
+                            <p id="totalSessions" style="color: #81c784; font-size: 24px; font-weight: 700;">0</p>
+                        </article>
+
+                    </div>
+                    <h3>Dark Mode:</h3>
+                    <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px;">
+                        <article class="stat-card"
+                            style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid #3d5a2c; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">🌼</div>
+                            <h3 style="color: #c8e6c9; font-size: 16px; margin-bottom: 8px;">Narcissus</h3>
+                            <p id="narcissusTime" style="color: #4caf50; font-size: 24px; font-weight: 700;">0:00</p>
+                        </article>
+                        <article class="stat-card"
+                            style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid #3d5a2c; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">🌊</div>
+                            <h3 style="color: #c8e6c9; font-size: 16px; margin-bottom: 8px;">Sea Stones</h3>
+                            <p id="seastonesTime" style="color: #00caff; font-size: 24px; font-weight: 700;">0:00</p>
+                        </article>
+                        <article class="stat-card"
+                            style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid #3d5a2c; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">🧑🏻‍♂️</div>
+                            <h3 style="color: #c8e6c9; font-size: 16px; margin-bottom: 8px;">Running Guy</h3>
+                            <p id="runningTime" style="color: #ff6600; font-size: 24px; font-weight: 700;">0:00</p>
+                        </article>
+                        <article class="stat-card"
+                            style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid #3d5a2c; text-align: center;">
+                            <div style="font-size: 32px; margin-bottom: 10px;">✅</div>
+                            <h3 style="color: #c8e6c9; font-size: 16px; margin-bottom: 8px;">Всего сессий</h3>
+                            <p id="totalSessions" style="color: #81c784; font-size: 24px; font-weight: 700;">0</p>
+                        </article>
+
+                    </div>
+                    <button class="save-btn" onclick="saveProfile()">
+                        <i class="bi bi-save"></i> Сохранить изменения
+                    </button>
+                </section>
     </div>
 </body>
+
 </html>
