@@ -245,7 +245,12 @@ h3{
     box-shadow: 0 5px 15px rgba(44, 87, 44, 0.4);
 }
 
-
+.stats-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 15px; 
+    margin-bottom: 30px;
+}
 input[type="file"] {
     display: none;
 }
