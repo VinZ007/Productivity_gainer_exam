@@ -174,19 +174,19 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.plant-option.selected {
+.plant-option.selected, .music-option.selected{
     background: linear-gradient(180deg, #2e7d4d 0%, #266d41 100%);
     border-color: #4a9a6a;
     box-shadow: 0 0 0 3px rgba(74, 154, 106, 0.3);
 }
 
-.plant-option-sea.selected {
+.plant-option-sea.selected, .music-option-sea.selected{
     background: linear-gradient(135deg, #1a3261 0%, #002775 100%);
     border-color: #0141a1;
     box-shadow: 0 0 0 3px rgba(74, 154, 106, 0.3);
 }
 
-.plant-option-run.selected {
+.plant-option-run.selected, .music-option-run.selected {
     background: linear-gradient(180deg, rgb(247, 189, 28) 0%, #e16404 100%);
     border-color: #ff6600ff;
 
@@ -255,6 +255,41 @@
     border: 2px solid #48926a;
 }
 
+.ApplySelection-sea{
+    background: linear-gradient(135deg, #0f0f29 0%, #1f1833 100%);
+    border-radius: 12px;
+    width: 100%;
+    color: white;
+    padding: 20px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: 5px;
+    text-align: center;
+    border: 2px solid #3a3d6b;
+
+}
+.ApplySelection-sea:focus{
+    background: linear-gradient(135deg, #110f29 0%, #120e1e 100%);
+    border: 2px solid #5c4892;
+}
+
+.ApplySelection-run{
+    background: linear-gradient(135deg, #29210f 0%, #333018 100%);
+    border-radius: 12px;
+    width: 100%;
+    color: white;
+    padding: 20px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: 5px;
+    text-align: center;
+    border: 2px solid #6b603a;
+
+}
+.ApplySelection-run:focus{
+    background: linear-gradient(135deg, #29280f 0%, #1e1c0e 100%);
+    border: 2px solid #927148;
+}
 .selected-plant-display {
     background: linear-gradient(135deg, #1e4a34 0%, #2a5a44 100%);
     border-radius: 12px;

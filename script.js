@@ -30,19 +30,20 @@ let isRunning = false;
 let selectedPlant = null;
 let selectedMusic = null;
 let menuvisible = false;
+let customMusicData = null;
+let sessionStartTime = null;
 //narcissus
-let narcissusVisual = ['timer_title', 'wrapper', 'selected-plant-display', 'page', 'modal-header', 'modal-content', 'timechoose', 'plant', 'timer_clock', 'plant-option', 'plant-option', 'plant-option', 'music-option', 'music-option', 'music-option', 'music-option'];
+let narcissusVisual = ['timer_title', 'wrapper', 'selected-plant-display', 'page', 'modal-header', 'modal-content', 'timechoose', 'plant', 'timer_clock', 'plant-option', 'plant-option', 'plant-option', 'music-option', 'music-option', 'music-option', 'music-option', 'ApplySelection'];
 //seastones
-let seastonesVisual = ['timer_title_sea', 'wrapper_sea', 'selected-plant-display-sea', 'page_sea', 'modal-header-sea', 'modal-content-sea', 'timechoose_sea', 'plant_sea', 'timer_clock_sea', 'plant-option-sea', 'plant-option-sea', 'plant-option-sea', 'music-option-sea', 'music-option-sea', 'music-option-sea', 'music-option-sea'];
-let themeObjects = [timertitle, wrapper, selplant, page, modalhead, modalcont, timerchoose, choosewidjet, timerDisplay, plantOptions[0], plantOptions[1], plantOptions[2], musicOptions[0], musicOptions[1], musicOptions[2], musicOptions[3]];
+let seastonesVisual = ['timer_title_sea', 'wrapper_sea', 'selected-plant-display-sea', 'page_sea', 'modal-header-sea', 'modal-content-sea', 'timechoose_sea', 'plant_sea', 'timer_clock_sea', 'plant-option-sea', 'plant-option-sea', 'plant-option-sea', 'music-option-sea', 'music-option-sea', 'music-option-sea', 'music-option-sea', 'ApplySelection-sea'];
+let themeObjects = [timertitle, wrapper, selplant, page, modalhead, modalcont, timerchoose, choosewidjet, timerDisplay, plantOptions[0], plantOptions[1], plantOptions[2], musicOptions[0], musicOptions[1], musicOptions[2], musicOptions[3], openPlantModalBtn];
+
 for (let i = 0; i < seastonesVisual.length; i++) {
     themeObjects[i].classList.remove(seastonesVisual[i]);
-
 }
 
-
 //running man
-let runningmanVisual = ['timer_title_run', 'wrapper_run', 'selected-plant-display-run', 'page_run', 'modal-header-run', 'modal-content-run', 'timechoose_run', 'plant_run', 'timer_clock_run', 'plant-option-run', 'plant-option-run', 'plant-option-run', 'music-option-run', 'music-option-run', 'music-option-run', 'music-option-run'];
+let runningmanVisual = ['timer_title_run', 'wrapper_run', 'selected-plant-display-run', 'page_run', 'modal-header-run', 'modal-content-run', 'timechoose_run', 'plant_run', 'timer_clock_run', 'plant-option-run', 'plant-option-run', 'plant-option-run', 'music-option-run', 'music-option-run', 'music-option-run', 'music-option-run', 'ApplySelection-run'];
 for (let i = 0; i < seastonesVisual.length; i++) {
     themeObjects[i].classList.remove(runningmanVisual[i]);
 
@@ -51,10 +52,36 @@ updateTimerDisplay();
 updatePlantStage();
 timeButtons[2].classList.add('active');
 
+const customAudioEl = new Audio();
+customAudioEl.loop = true;
+
 const PlantMusicDictionary = {
     narcissus: document.getElementById('narcissusmusic'),
     seastones: document.getElementById('yellowmusic'),
-    running: document.getElementById('runningman')
+    running: document.getElementById('runningman'),
+    custom: customAudioEl
+};
+
+const plantImages = {
+    narcissus: [
+        'img/plant1.png',
+        'img/plant1_2.png',
+        'img/plant1_3.png',
+        'img/plant1_4.png'
+    ],
+    seastones: [
+        'img/plant2_1.png',
+        'img/plant2_2.png',
+        'img/plant2_3.png',
+        'img/plant2_4.png'
+    ],
+    running: [
+        'img/plant3_1.png',
+        'img/plant3_2.png',
+        'img/plant3_3.png',
+        'img/plant3_4.png'
+    ]
+
 };
 
 function MenuVisibility() {
@@ -107,21 +134,20 @@ function updatePlantStage() {
     activeStage.classList.add('active');
 }
 
-//Эту функцию надо полностью поменять
-function PlayMusic(plantType) {
+function PlayMusic() {
     if (currentMusic) {
         currentMusic.pause();
         currentMusic.currentTime = 0;
     }
 
-    const song = PlantMusicDictionary[plantType];
+    const song = PlantMusicDictionary[selectedMusic];
     if (song) {
-        song.volume = 0.5;
+
         currentMusic = song;
 
         if (isRunning) {
             const playPromise = song.play();
-
+            song.volume = 0.5;
             if (playPromise !== undefined) {
                 playPromise.then(() => {
                     console.log("Музыка успешно воспроизводится");
@@ -131,7 +157,7 @@ function PlayMusic(plantType) {
             }
         }
     }
-    changeTheme(plantType);
+    
 }
 function changeTheme(plantType) {
     if (plantType == 'seastones') {
@@ -189,7 +215,7 @@ function changeTheme(plantType) {
         document.body.style.background = 'linear-gradient(180deg,  #f8e300f3 0%, #ff6600ff 100%)';
         startBtn.style.background = 'linear-gradient(180deg,  #6700f83f 0%, #ff6600ff 100%)';
         stopBtn.style.background = 'linear-gradient(180deg,  #6700f82d 0%, #ff6600ff 100%)';
-        resetBtn.style.background = 'linear-gradient(180deg,  #6700f879 0%, #f2643dff 100%)'; //#00FFDE #00CAFF #4300FF #0065F8
+        resetBtn.style.background = 'linear-gradient(180deg,  #6700f879 0%, #f2643dff 100%)';
 
 
     }
@@ -200,12 +226,14 @@ function startTimer() {
     isRunning = true;
     startBtn.disabled = true;
 
-    if (selectedPlant) {
-        PlayMusic(selectedPlant);
+    if (!selectedPlant || !selectedMusic) {
+        alert("Выберите виджет и музыку");
+        isRunning = false;
+        startBtn.disabled = false;
+        return;
     }
-    else {
-        alert("Выберите режим");
-    }
+    changeTheme(selectedPlant);
+    PlayMusic()
 
     timerInterval = setInterval(() => {
         if (totalSeconds > 0) {
@@ -290,28 +318,6 @@ window.addEventListener('click', function (event) {
 });
 
 function updatePlantImages(plantType) {
-    const plantImages = {
-        narcissus: [
-            'img/plant1.png',
-            'img/plant1_2.png',
-            'img/plant1_3.png',
-            'img/plant1_4.png'
-        ],
-        seastones: [
-            'img/plant2_1.png',
-            'img/plant2_2.png',
-            'img/plant2_3.png',
-            'img/plant2_4.png'
-        ],
-        running: [
-            'img/plant3_1.png',
-            'img/plant3_2.png',
-            'img/plant3_3.png',
-            'img/plant3_4.png'
-        ]
-
-    };
-
     if (plantImages[plantType]) {
         plantStages.forEach((stage, index) => {
             if (plantImages[plantType][index]) {
@@ -320,6 +326,74 @@ function updatePlantImages(plantType) {
         });
     }
 }
+
+//MODAL MENU
+const widjet_names = { narcissus: 'Narcissus', seastones: 'Sea Stones', running: 'Running Guy' };
+const music_names = { narcissus: 'Ruler Of My Heart', seastones: 'My Clematis', running: 'All-in', custom: 'Своя музыка' };
+
+function updateOpenPlantModalBtn() {
+    if (!selectedPlant && !selectedMusic) return;
+    const widgetLabel = selectedPlant ? widjet_names[selectedPlant] : '…';
+    const musicLabel = selectedMusic ? (selectedMusic === 'custom' ? 'Своя музыка' : music_names[selectedMusic]) : '…';
+    openPlantModalBtn.textContent = `${widgetLabel} + ${musicLabel}`;
+}
+
+
+plantOptions.forEach(option => {
+    option.addEventListener('click', function () {
+        plantOptions.forEach(opt => opt.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedPlant = this.dataset.widget;
+        if (selectedPlantSpan) selectedPlantSpan.textContent = widjet_names[selectedPlant];
+        updateOpenPlantModalBtn();
+        updatePlantImages(selectedPlant);
+        changeTheme(selectedPlant);
+    });
+});
+
+
+musicOptions.forEach(option => {
+    option.addEventListener('click', function () {
+        musicOptions.forEach(opt => opt.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedMusic = this.dataset.music;
+        if (selectedMusic) selectedMusicSpan.textContent = music_names[selectedMusic];
+        const customUpload = document.getElementById('customMusicUpload');
+        if (customUpload) customUpload.style.display = selectedMusic === 'custom' ? 'block' : 'none';
+        updateOpenPlantModalBtn();
+    })
+})
+
+const customMusicInput = document.getElementById('customMusicInput');
+if (customMusicInput) {
+    customMusicInput.addEventListener('change', function () {
+        const file = this.files[0];
+        if (!file) return;
+        if (file.size > 10 * 1024 * 1024) { alert('Файл больше 10 МБ'); this.value = ''; return; }
+        if (!file.type.includes('audio')) { alert('Выберите аудио файл'); this.value = ''; return; }
+        const reader = new FileReader();
+        reader.onload = e => {
+            customMusicData = e.target.result;
+            if (selectedMusicSpan) selectedMusicSpan.textContent = file.name;
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+document.getElementById('ApplySelection').addEventListener('click', function () {
+    if (!selectedPlant || !selectedMusic) { alert('Выберите виджет и музыку'); return; }
+    if (selectedMusic === 'custom' && !customMusicData) { alert('Загрузите музыкальный файл'); return; }
+
+    if (selectedMusic === 'custom') {
+    PlantMusicDictionary.custom.src = customMusicData;
+}
+
+    updatePlantImages(selectedPlant);
+    changeTheme(selectedPlant);
+    
+    if (!isRunning) { currentMusic?.pause(); }
+    plantModal.style.display = 'none';
+});
 
 // ГОРЯЧИЕ КЛАВИШИ
 document.addEventListener('keydown', function (event) {
