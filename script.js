@@ -4,6 +4,7 @@ const resetBtn = document.getElementById('reset');
 const stopBtn = document.getElementById('stop');
 const timeButtons = document.querySelectorAll('.timechoose button');
 const openPlantModalBtn = document.getElementById('openPlantModal');
+const applyBtn = document.getElementById('ApplySelection');
 const plantModal = document.getElementById('plantModal');
 const closeModalBtn = document.querySelector('.close-modal');
 const plantOptions = document.querySelectorAll('.plant-option');
@@ -32,11 +33,174 @@ let selectedMusic = null;
 let menuvisible = false;
 let customMusicData = null;
 let sessionStartTime = null;
+
+const translations = {
+    en: {
+
+        timer_title: 'Productivity Gainer',
+        chooseWidget: 'Choose Your Widget',
+        modalTitle: 'Choose Your Widget',
+        sectionWidget: 'Choose Widget',
+        sectionMusic: 'Choose Music',
+        applyBtn: 'Apply Selection',
+        labelWidget: 'Widget',
+        labelSong: 'Song',
+        maxSize: 'Max file size 10 MB',
+
+        // Виджеты
+        widget_narcissus_name: 'Narcissus',
+        widget_narcissus_desc: 'A gentle blooming flower',
+        widget_seastones_name: 'Sea Stones',
+        widget_seastones_desc: 'Calming ocean vibes',
+        widget_running_name: 'Running Guy',
+        widget_running_desc: 'Energy & motivation',
+
+        // Музыка
+        music_narcissus_name: 'Ruler Of My Heart',
+        music_narcissus_desc: 'Recommended for Narcissus',
+        music_seastones_name: 'My Clematis',
+        music_seastones_desc: 'Recommended for Sea Stones',
+        music_running_name: 'All-in',
+        music_running_desc: 'Recommended for Running Guy',
+        music_custom_name: 'Custom Music',
+        music_custom_desc: 'Upload an MP3 file',
+
+        // Боковое меню
+        signIn: 'Sign In',
+        signUp: 'Sign Up',
+        profile: 'Profile',
+        nightMode: 'Night Mode',
+        sleepHelper: 'Sleep Helper',
+        logOut: 'Log Out',
+
+        alertChooseBoth: 'Please choose a widget and music',
+        alertUploadFile: 'Please upload a music file',
+        alertFileTooBig: 'File is larger than 10 MB',
+        alertNotAudio: 'Please choose an audio file',
+
+        widgetNames: { narcissus: 'Narcissus', seastones: 'Sea Stones', running: 'Running Guy' },
+        musicNames: { narcissus: 'Ruler Of My Heart', seastones: 'My Clematis', running: 'All-in', custom: 'Custom Music' },
+        noneLabel: 'None',
+
+        // Кнопка переключателя 
+        langBtnLabel: 'Русский',
+    },
+
+    ru: {
+        timer_title: 'Гейнер Продуктивности',
+        chooseWidget: 'Выбрать виджет',
+        modalTitle: 'Выбрать виджет',
+        sectionWidget: 'Выберите виджет',
+        sectionMusic: 'Выберите музыку',
+        applyBtn: 'Применить выбор',
+        labelWidget: 'Виджет',
+        labelSong: 'Песня',
+        maxSize: 'Максимальный размер 10 МБ',
+
+        widget_narcissus_name: 'Нарцисс',
+        widget_narcissus_desc: 'Нежный цветущий цветок',
+        widget_seastones_name: 'Морские камни',
+        widget_seastones_desc: 'Спокойная атмосфера океана',
+        widget_running_name: 'Бегущий человек',
+        widget_running_desc: 'Энергия и мотивация',
+
+        music_narcissus_name: 'Ruler Of My Heart',
+        music_narcissus_desc: 'Рекомендуется для Нарцисса',
+        music_seastones_name: 'My Clematis',
+        music_seastones_desc: 'Рекомендуется для Морских камней',
+        music_running_name: 'All-in',
+        music_running_desc: 'Рекомендуется для Бегущего человека',
+        music_custom_name: 'Своя музыка',
+        music_custom_desc: 'Загрузите MP3 файл',
+
+        signIn: 'Войти',
+        signUp: 'Регистрация',
+        profile: 'Профиль',
+        nightMode: 'Ночной режим',
+        sleepHelper: 'Помощник сна',
+        logOut: 'Выйти',
+
+        alertChooseBoth: 'Выберите виджет и музыку',
+        alertUploadFile: 'Загрузите музыкальный файл',
+        alertFileTooBig: 'Файл больше 10 МБ',
+        alertNotAudio: 'Выберите аудио файл',
+
+        widgetNames: { narcissus: 'Нарцисс', seastones: 'Морские камни', running: 'Бегущий человек' },
+        musicNames: { narcissus: 'Ruler Of My Heart', seastones: 'My Clematis', running: 'All-in', custom: 'Своя музыка' },
+        noneLabel: 'Нет',
+
+        langBtnLabel: 'English',
+    }
+};
+
+let currentLang = localStorage.getItem('pg_lang') || 'en';
+
+function getItemTranslate(item) {
+    if (translations[currentLang][item] != undefined) {
+        return translations[currentLang][item];
+    }
+    else {
+        return item;
+    }
+}
+
+
+function applyTranslate() {
+    document.querySelectorAll('[data-tt]').forEach(element => {
+        const item = element.dataset.tt;
+        const text = getItemTranslate(item);
+        if(text!==undefined) element.textContent = text;
+    });
+    const langBtn = document.getElementById('langToggle');
+    langBtn.textContent = getItemTranslate('langBtnLabel');
+    updateOpenPlantModalBtn();
+   if (selectedPlantSpan && selectedPlantSpan.dataset.key === 'none') {
+        selectedPlantSpan.textContent = getItemTranslate('noneLabel');
+    } else if (selectedPlant && selectedPlantSpan) {
+        selectedPlantSpan.textContent = getItemTranslate('widgetNames')[selectedPlant] || selectedPlant;
+    }
+
+    if (selectedMusicSpan && selectedMusicSpan.dataset.key === 'none') {
+        selectedMusicSpan.textContent = getItemTranslate('noneLabel');
+    } else if (selectedMusic && selectedMusicSpan) {
+        if (selectedMusic === 'custom') {
+            selectedMusicSpan.textContent = getItemTranslate('music_custom_name');
+        } else {
+            selectedMusicSpan.textContent = getItemTranslate('musicNames')[selectedMusic] || selectedMusic;
+        }
+    }
+
+    document.documentElement.lang = currentLang;
+}
+
+function toggleLanguage() {
+    if (currentLang === 'en') {
+        currentLang = 'ru';
+    } else {
+        currentLang = 'en';
+    }
+    localStorage.setItem('pg_lang', currentLang);
+    applyTranslate();
+}
+
+document.getElementById('langToggle').addEventListener('click', toggleLanguage);
+
+if (selectedPlantSpan) {
+    selectedPlantSpan.dataset.key = 'none';
+    selectedPlantSpan.textContent = getItemTranslate('noneLabel');
+}
+if (selectedMusicSpan) {
+    selectedMusicSpan.dataset.key = 'none';
+    selectedMusicSpan.textContent = getItemTranslate('noneLabel');
+}
+
+
+
 //narcissus
 let narcissusVisual = ['timer_title', 'wrapper', 'selected-plant-display', 'page', 'modal-header', 'modal-content', 'timechoose', 'plant', 'timer_clock', 'plant-option', 'plant-option', 'plant-option', 'music-option', 'music-option', 'music-option', 'music-option', 'ApplySelection'];
 //seastones
 let seastonesVisual = ['timer_title_sea', 'wrapper_sea', 'selected-plant-display-sea', 'page_sea', 'modal-header-sea', 'modal-content-sea', 'timechoose_sea', 'plant_sea', 'timer_clock_sea', 'plant-option-sea', 'plant-option-sea', 'plant-option-sea', 'music-option-sea', 'music-option-sea', 'music-option-sea', 'music-option-sea', 'ApplySelection-sea'];
-let themeObjects = [timertitle, wrapper, selplant, page, modalhead, modalcont, timerchoose, choosewidjet, timerDisplay, plantOptions[0], plantOptions[1], plantOptions[2], musicOptions[0], musicOptions[1], musicOptions[2], musicOptions[3], openPlantModalBtn];
+let themeObjects = [timertitle, wrapper, selplant, page, modalhead, modalcont, timerchoose, choosewidjet, timerDisplay, plantOptions[0], plantOptions[1], plantOptions[2], musicOptions[0], musicOptions[1], musicOptions[2], musicOptions[3], applyBtn];
 
 for (let i = 0; i < seastonesVisual.length; i++) {
     themeObjects[i].classList.remove(seastonesVisual[i]);
@@ -157,7 +321,7 @@ function PlayMusic() {
             }
         }
     }
-    
+
 }
 function changeTheme(plantType) {
     if (plantType == 'seastones') {
@@ -385,12 +549,12 @@ document.getElementById('ApplySelection').addEventListener('click', function () 
     if (selectedMusic === 'custom' && !customMusicData) { alert('Загрузите музыкальный файл'); return; }
 
     if (selectedMusic === 'custom') {
-    PlantMusicDictionary.custom.src = customMusicData;
-}
+        PlantMusicDictionary.custom.src = customMusicData;
+    }
 
     updatePlantImages(selectedPlant);
     changeTheme(selectedPlant);
-    
+
     if (!isRunning) { currentMusic?.pause(); }
     plantModal.style.display = 'none';
 });
@@ -406,3 +570,5 @@ document.addEventListener('keydown', function (event) {
         }
     }
 });
+
+applyTranslate();
