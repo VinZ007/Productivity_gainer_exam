@@ -18,6 +18,44 @@ body {
     overflow-x: hidden;
 }
 
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #3d5a2c;
+    text-align: center;
+}
+
+.stat-card-emoji {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.stat-card-label {
+    color: #c8e6c9;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.stat-card-value {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.stat-card-value--green  { color: #4caf50; }
+.stat-card-value--blue   { color: #00caff; }
+.stat-card-value--orange { color: #ff6600; }
+.stat-card-value--lime   { color: #81c784; }
+
+#bannerImage,
+#bioEdit {
+    display: none;
+}
+
+.bio-save-btn {
+    margin-right: 10px;
+}
+
 .backbtn {
     left: 1vh;
     top: 2vh;
