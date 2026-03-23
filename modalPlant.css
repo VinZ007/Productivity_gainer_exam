@@ -274,7 +274,7 @@
 }
 
 .ApplySelection-run{
-    background: linear-gradient(135deg, #29210f 0%, #333018 100%);
+    background: linear-gradient(180deg, rgb(247, 189, 28) 0%, #e16404 100%);
     border-radius: 12px;
     width: 100%;
     color: white;
@@ -283,12 +283,12 @@
     font-weight: 500;
     margin-top: 5px;
     text-align: center;
-    border: 2px solid #6b603a;
+    border: 2px solid #ffc800;
 
 }
 .ApplySelection-run:focus{
-    background: linear-gradient(135deg, #29280f 0%, #1e1c0e 100%);
-    border: 2px solid #927148;
+    background: linear-gradient(135deg, #ff512a 0%, #ff7b00 100%);
+    border: 2px solid #cf7405;
 }
 .selected-plant-display {
     background: linear-gradient(135deg, #1e4a34 0%, #2a5a44 100%);
@@ -362,20 +362,6 @@
     color: lightgreen;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Анимация мигания для таймера */
 @keyframes blink {

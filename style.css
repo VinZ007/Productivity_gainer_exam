@@ -70,6 +70,9 @@ footer {
 
 }
 
+#langToggle{
+    border: none;
+}
 .menu_content button {
     border: 2px solid #3d5a2c;
     margin-top: 20px;

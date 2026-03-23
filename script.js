@@ -23,6 +23,11 @@ const timertitle = document.getElementById('timer-title');
 const sidemenu = document.getElementById('menu_content');
 const menuhandler = document.getElementById('menu_handle');
 const handlearrow = document.querySelectorAll('.menu_handle i');
+const authBtns = document.getElementById('authBtn');
+const userBtns = document.getElementById('userBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+const nightModeBtn = document.getElementById('NightMode');
+const sleepHelperBtn = document.getElementById('Sleephelper');
 let currentMusic = null;
 let totalSeconds = 1800;
 let initialTime = 1800;
@@ -149,12 +154,12 @@ function applyTranslate() {
     document.querySelectorAll('[data-tt]').forEach(element => {
         const item = element.dataset.tt;
         const text = getItemTranslate(item);
-        if(text!==undefined) element.textContent = text;
+        if (text !== undefined) element.textContent = text;
     });
     const langBtn = document.getElementById('langToggle');
     langBtn.textContent = getItemTranslate('langBtnLabel');
     updateOpenPlantModalBtn();
-   if (selectedPlantSpan && selectedPlantSpan.dataset.key === 'none') {
+    if (selectedPlantSpan && selectedPlantSpan.dataset.key === 'none') {
         selectedPlantSpan.textContent = getItemTranslate('noneLabel');
     } else if (selectedPlant && selectedPlantSpan) {
         selectedPlantSpan.textContent = getItemTranslate('widgetNames')[selectedPlant] || selectedPlant;
@@ -192,6 +197,19 @@ if (selectedPlantSpan) {
 if (selectedMusicSpan) {
     selectedMusicSpan.dataset.key = 'none';
     selectedMusicSpan.textContent = getItemTranslate('noneLabel');
+}
+
+
+if (authSystem.isLoggedIn()) {
+    authBtns.style.display = 'none';
+    userBtns.style.display = 'block';
+    logoutBtn.addEventListener('click', function () {
+        authSystem.logout();
+        window.location.reload();
+    });
+} else {
+    authBtns.style.display = 'block';
+    userBtns.style.display = 'none';
 }
 
 
