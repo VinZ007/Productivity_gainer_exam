@@ -190,7 +190,7 @@ function toggleLanguage() {
 }
 
 document.getElementById('langToggle').addEventListener('click', toggleLanguage);
-
+document.getElementById('langToggleBtn').addEventListener('click', toggleLanguage);
 if (selectedPlantSpan) {
     selectedPlantSpan.dataset.key = 'none';
     selectedPlantSpan.textContent = getItemTranslate('noneLabel');
