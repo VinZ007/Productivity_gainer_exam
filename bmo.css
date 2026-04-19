@@ -1,0 +1,422 @@
+:root {
+    --basic-radius: 15px;
+    --color-body-primary: #760A56;
+    --color-body-secondary: #AE0061;
+    --color-face-primary: #FF813C;
+    --color-face-secondary: #FFC359;
+    --color-additional-light: #D20066;
+    --color-additional-dark: #5F0146;
+}
+
+/* ФИКСИРОВАННЫЙ КОНТЕЙНЕР BMO */
+.bmo-body {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 88px;        /* фиксированная ширина */
+    height: 120px;       /* фиксированная высота */
+    z-index: 999;
+}
+
+.bmo-container {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bmo {
+    flex: 0 0 95%;
+    width: 100%;
+    position: relative;
+}
+
+/* Основной корпус */
+.body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-body-primary);
+    border-radius: var(--basic-radius);
+    overflow: visible;
+    --base-deg: 5deg;
+    animation: base 0.2s ease-in-out infinite alternate;
+}
+
+.body::after {
+    content: "";
+    border-radius: var(--basic-radius);
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    background-color: var(--color-body-secondary);
+}
+.face {
+    position: absolute;
+    width: 60%;
+    aspect-ratio: 1/1;
+    margin: 10%;
+    border-radius: var(--basic-radius);
+    background-color: var(--color-body-primary);
+
+    z-index: 10;
+    overflow: hidden;
+}
+.face::before {
+    content: "";
+    background-color: var(--color-face-primary);
+    position: absolute;
+    width: 88%;
+    height: 100%;
+    right: 0;
+
+    border-radius: var(--basic-radius);
+}
+.face::after {
+    content: "";
+    background-color: var(--color-face-secondary);
+    border-radius: var(--basic-radius);
+    position: absolute;
+    width: 80%;
+    height: 92%;
+    right: 0;
+    bottom: 0;
+}
+.glass {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    margin: -5% -5%;
+
+    background: linear-gradient(135deg, transparent 15%, rgba(255, 255, 255, 0.5) 15%, rgba(255, 255, 255, 0.5) 40%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0.5) 75%, transparent 75%);
+    z-index: 15;
+
+    animation: glass 0.2s linear infinite alternate;
+}
+.facials {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.facials > * {
+    background-color: #001D31;
+    z-index: 10;
+}
+.eye {
+    width: 9%;
+    height: 25%;
+    animation: eye 2s linear infinite alternate;
+}
+.mouth {
+    width: 20%;
+    height: 10%;
+    margin: 0 6%;
+}
+.drop-base {
+    position: absolute;
+    width: 10%;
+    aspect-ratio: 1/1;
+    top: 13%;
+    left: 8%;
+
+    z-index: 20;
+    animation: drop 3s linear infinite ;
+}
+.drop {
+    background-color: #00A3D1;
+    width: 100%;
+    height: 100%;
+    transform: rotateZ(45deg);
+    border-radius: 0 20px 15px 20px;
+}
+.controls {
+    position: absolute;
+    width: 80%;
+    height: 22%;
+    bottom: 10%;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+
+    z-index: 10;
+}
+.controls-left, .controls-right {
+    /* border: 1px solid black; */
+    width: 48%;
+
+    position: relative;
+}
+.cross-vert, .cross-hor {
+    border-radius: 3px;
+    background-color: white;
+    position: absolute;
+}
+.cross-vert {
+    width: 45%;
+    height: 100%;
+    left: 27.5%;
+    box-shadow: 3px -2px 0 0 var(--color-body-primary), inset -4px 0px 0 0 #88d3e3;
+}
+.cross-hor {
+    width: 100%;
+    height: 40%;
+    top: 30%;
+    box-shadow: 3px 0px 0 0 var(--color-body-primary), inset -4px 0px 0 0 #88d3e3;
+}
+.controls-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.controls-right > * {
+    border-radius: var(--basic-radius);
+    flex: 0 0 49%;
+    width: 63%;
+    background-color: white;
+
+    box-shadow: inset -4px 0 #88d3e3, 3px 0 0 1px var(--color-body-primary);
+}
+.button-top {
+    align-self: flex-end;
+}
+.arms {
+    position: absolute;
+    height: 14%;
+    left: -20%;
+    right: -15%;
+    bottom: 25%;
+
+    display: flex;
+    justify-content: space-between;
+}
+.arm {
+    position: relative;
+    background-color: #001D31;
+    width: 23%;
+    border-radius: var(--basic-radius);
+}
+.arm::after {
+    content: "";
+    border-radius: var(--basic-radius);
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1/1;
+    right: 0;
+    background-color: var(--color-face-secondary);
+}
+.arm-left {
+    --base-deg:  40deg;
+    transform-origin: right center;
+}
+.arm-left::after {
+    left: 0;
+}
+.arm-right {
+    --base-deg:  -40deg;
+    transform-origin: left center;
+
+}
+.arm-left, .arm-right {
+   
+    animation: base .3s linear infinite alternate;
+
+}
+.head {
+    position: absolute;
+    width: 30%;
+    height: 25%;
+    top: -25%;
+    right: 25%;
+
+}
+.head > * {
+    background-color: #001D31;
+}
+.head-top {
+    border-radius: var(--basic-radius) var(--basic-radius) 0 0;
+    height: 75%;
+    width: 27%;
+    margin: 0 auto;
+    margin-bottom: -5px;
+    --base-deg: 30deg;
+
+    animation: base .2s linear infinite alternate;
+    transform-origin: center 110%;
+}
+.head-bottom {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+.features {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    z-index: 20;
+}
+.feature-vert {
+    position: absolute;
+    border-radius: var(--basic-radius);
+    width: 3%;
+    left: 2%;
+    top: 10%;
+    bottom: 10%;
+
+    background-color: var(--color-additional-light);
+}
+.feature-hor {
+    position: absolute;
+    border-radius: var(--basic-radius);
+
+    width: 30%;
+    height: 4%;
+    bottom: 2%;
+    right: 28%;
+
+    background-color: var(--color-additional-light);
+}
+.feature-block {
+    position: absolute;
+    width: 16%;
+    height: 18%;
+    right: 2%;
+    top: 23%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.block-el {
+    height: 21%;
+    background-color: var(--color-additional-dark);
+    border-radius: var(--basic-radius);
+}
+.legs {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+
+    z-index: 1;
+}
+.leg {
+    border-radius: 0 0 5px 5px;
+    width: 20%;
+    background-color: #001D31;
+    margin: 0 12%;
+    margin-top: -10px;
+}
+.leg-left, .leg-right {
+    z-index: -1;
+ animation: legs .2s linear infinite;
+}
+.leg-left {
+    --l-deg: 100%;
+}
+.leg-right {
+    --l-deg: -100%;
+    animation-direction: reverse;
+}
+.floor {
+    flex: 0 0 5%;
+    background-color: #008fb8;
+    border-radius: var(--basic-radius);
+
+    animation: floor .1s linear infinite alternate;
+}
+
+/* Темы BMO */
+.bmo-body.theme-narcissus {
+    --color-body-primary: #2E5A2E;
+    --color-body-secondary: #1E3A1E;
+    --color-face-primary: #F0D050;
+    --color-face-secondary: #E0B020;
+    --color-additional-light: #A0D080;
+    --color-additional-dark: #1A2E1A;
+}
+
+.bmo-body.theme-seastones {
+    --color-body-primary: #1A3A6A;
+    --color-body-secondary: #0E2350;
+    --color-face-primary: #4AC0E0;
+    --color-face-secondary: #2A9BB0;
+    --color-additional-light: #80C0E0;
+    --color-additional-dark: #0A1A30;
+}
+
+.bmo-body.theme-running {
+    --color-body-primary: #A03030;
+    --color-body-secondary: #701010;
+    --color-face-primary: #F0A050;
+    --color-face-secondary: #E07020;
+    --color-additional-light: #E08080;
+    --color-additional-dark: #501010;
+}
+
+@keyframes base {
+    from{
+      transform: rotateZ(calc(-1*var(--base-deg)));
+    }
+    to{
+        transform: rotateZ(var(--base-deg));
+
+    }
+}
+
+
+@keyframes legs {
+    0%{
+        transform: translateY(-100%);
+
+    }
+    50%{
+        transform: initial;
+
+    }
+    100%{
+        transform:translate(var(--l-deg), 0);
+    }
+}
+
+@keyframes glass{
+    from{
+        transform: translate(-5%, -5%);
+
+    }
+    to{
+        transform: translate(5%, 5%);
+    }
+}
+
+@keyframes drop{
+    50%,100%{
+        transform: translateY(300%);
+        opacity: 0;
+    }
+    
+}
+
+@keyframes eye{
+    90%{
+        transform:initial;
+    }
+    95%,100%{
+        transform:scaleY(.2);
+        
+    }
+}
+@keyframes floor{
+    from{
+        transform: scaleX(.5);
+
+    }
+    to{
+       transform: initial;
+    }
+    
+}

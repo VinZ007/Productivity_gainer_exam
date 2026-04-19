@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="modalPlant.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="bmo.css">
 </head>
 
 <body class="hide-scrollbar">
@@ -43,7 +44,7 @@
                 </div>
             </div>
 
-            <!-- Модальное окно для выбора растения -->
+            <!-- Модальное окно для выбора виджета -->
             <dialog id="plantModal" class="hide-scrollbar modal">
                 <div class="modal-content" id="modalcontant">
                     <header class="modal-header" id="modalhead">
@@ -130,10 +131,64 @@
                 <button data-tt="logOut" id="logoutBtn">Log Out</button>
             </div>
             <button id="langToggle" style="display: block;">Русский</button>
-            <footer>2026 VinZ |1 COURSE | BSTU</footer>
+            <footer>2026 |1 КУРС | БГТУ</footer>
 
         </div>
+        
+    </div>
 
+    <!-- Обратная связь -->
+         <div class="bmo-body" id="message">
+         <section class="bmo-container">
+        <div class="bmo">
+            <div class="body">
+                <div class="face">
+                    <div class="glass"></div>
+                    <div class="facials">
+                        <div class="eye"></div>
+                        <div class="mouth"></div>
+                        <div class="eye"></div>
+                    </div>
+                    <div class="drop-base">
+                        <div class="drop"></div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="controls-left">
+                        <div class="cross-vert"></div>
+                        <div class="cross-hor"></div>
+                    </div>
+                    <div class="controls-right">
+                        <div class="button-top"></div>
+                        <div class="button-bottom"></div>
+                    </div>
+                </div>
+                <div class="arms">
+                    <div class="arm arm-left"></div>
+                    <div class="arm arm-right"></div>
+                </div>
+                <div class="head">
+                    <div class="head-top"></div>
+                    <div class="head-bottom"></div>
+                </div>
+                <div class="features">
+                    <div class="feature-vert"></div>
+                    <div class="feature-hor"></div>
+                    <div class="feature-block">
+                        <div class="block-el"></div>
+                        <div class="block-el"></div>
+                        <div class="block-el"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="legs">
+                <div class="leg leg-left"></div>
+                <div class="leg leg-right"></div>
+            </div>
+        </div>
+
+        <div class="floor"></div>
+    </section>
     </div>
     <script src="auth.js"></script>
     <script src="script.js"></script>

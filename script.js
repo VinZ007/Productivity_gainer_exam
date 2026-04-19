@@ -28,6 +28,7 @@ const userBtns = document.getElementById('userBtn');
 const logoutBtn = document.getElementById('logoutBtn');
 const nightModeBtn = document.getElementById('NightMode');
 const sleepHelperBtn = document.getElementById('Sleephelper');
+
 let currentMusic = null;
 let totalSeconds = 1800;
 let initialTime = 1800;
@@ -401,6 +402,13 @@ function changeTheme(plantType) {
 
 
     }
+    const bmoBody = document.querySelector('.bmo-body');
+    if (bmoBody) {
+        bmoBody.classList.remove('theme-narcissus', 'theme-seastones', 'theme-running');
+        if (plantType) {
+            bmoBody.classList.add(`theme-${plantType}`);
+        }
+    }
 }
 function startTimer() {
     if (isRunning) return;
@@ -590,3 +598,25 @@ document.addEventListener('keydown', function (event) {
 });
 
 applyTranslate();
+const message = document.getElementById('message');
+
+function openGmail() {
+    const email = "productivitygainermoderator@gmail.com";
+    const subject = "Тема";
+    const body = "Текст письма";
+
+
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.open(gmailUrl, '_blank');
+}
+
+message.addEventListener('click', openGmail);
+
+// Установка начальной темы BMO (по умолчанию Narcissus)
+document.addEventListener('DOMContentLoaded', function() {
+    const bmoBody = document.querySelector('.bmo-body');
+    if (bmoBody && !selectedPlant) {
+        bmoBody.classList.add('theme-narcissus');
+    }
+});
