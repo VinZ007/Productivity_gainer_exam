@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!authSystem.isLoggedIn()) {
         window.location.href = 'login.html';
     }
+
     let currentUser = authSystem.getCurrentUser();
     let currentProfile = authSystem.getCurrentUserProfile();
 
@@ -35,16 +36,17 @@ document.addEventListener('DOMContentLoaded', function () {
             if (currentProfile.bio) {
                 document.getElementById('bioText').textContent = currentProfile.bio;
             }
-            /*
-                            // Статистика
-                            if (currentProfile.stats) {
-                                document.getElementById('narcissusTime').textContent = formatTime(currentProfile.stats.narcissusTime);
-                                document.getElementById('seastonesTime').textContent = formatTime(currentProfile.stats.seastonesTime);
-                                document.getElementById('runningTime').textContent = formatTime(currentProfile.stats.runningTime);
-                                document.getElementById('totalSessions').textContent = currentProfile.stats.totalSessions || 0;
-                            }
-            
-                            */
+
+            // Статистика
+            if (currentProfile.stats && currentProfile.stats.productiveGainer) {
+                const stats = currentProfile.stats.productiveGainer;
+                document.getElementById('narcissusTime').textContent = formatTime(stats.narcissus);
+                document.getElementById('seastonesTime').textContent = formatTime(stats.seastones);
+                document.getElementById('runningTime').textContent = formatTime(stats.running);
+                document.getElementById('totalSessions').textContent = stats.sessions;
+            }
+
+
         }
     }
 
@@ -115,15 +117,24 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 3000);
     }
     function saveProfile() {
-    showMessage('Изменения сохранены', 'success');
-}
-window.saveProfile = saveProfile;
-window.toggleBioEdit = toggleBioEdit;
-window.cancelBioEdit = cancelBioEdit;
-window.saveBio = saveBio;
+        showMessage('Изменения сохранены', 'success');
+    }
+    window.saveProfile = saveProfile;
+    window.toggleBioEdit = toggleBioEdit;
+    window.cancelBioEdit = cancelBioEdit;
+    window.saveBio = saveBio;
     // Загрузка при старте
     loadProfile();
+    // Обновление при изменении localStorage из другой вкладки
+
 
 
 });
 
+window.addEventListener('storage', function(e) {
+    if (e.key === 'usersXML') {
+        currentUser = authSystem.getCurrentUser();
+        currentProfile = authSystem.getCurrentUserProfile();
+        loadProfile();
+    }
+});

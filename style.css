@@ -530,4 +530,69 @@ footer {
     cursor: not-allowed;
     transform: none;
 }
+/*МОДАЛКА С ИГРАМИ*/
 
+.break-modal {
+  border: none;
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  background: #1a1a2e;
+  color: white;
+  max-width: 780px;
+  width: 95vw;
+}
+
+.break-modal::backdrop {
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+}
+
+.break-modal-inner {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.break-timer-display {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #f0c040;
+  background: rgba(255,255,255,0.08);
+  padding: 8px 24px;
+  border-radius: 30px;
+}
+
+#gameSelector button {
+  padding: 14px 36px;
+  font-size: 1.1em;
+  border-radius: 12px;
+  border: none;
+  background: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#gameSelector button:hover {
+  background: #66bb6a;
+}
+
+.close-break-btn {
+  margin-top: 8px;
+  padding: 8px 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: background 0.2s;
+}
+
+.close-break-btn:hover {
+  background: rgba(255,255,255,0.1);
+}

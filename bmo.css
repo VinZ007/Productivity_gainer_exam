@@ -357,6 +357,17 @@
     --color-additional-light: #E08080;
     --color-additional-dark: #501010;
 }
+.bmo-body.theme-sleep {
+    --color-body-primary: #1E1A40;
+    --color-body-secondary: #2D2555;
+    --color-face-primary: #B080FF;
+    --color-face-secondary: #D0A0FF;
+    --color-additional-light: #C060E0;
+    --color-additional-dark: #0A0520;
+    --color-drop: #D060FF;
+    --color-cross-shadow: #B0A0FF;
+    --color-floor: #5020A0;
+}
 
 @keyframes base {
     from{

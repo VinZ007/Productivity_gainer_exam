@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="game_over hidden">
+    <div class="wind">
+      <h1>GAME OVER</h1>
+      <p>Score: <span class="score_g">0</span></p>
+      <button id="restart">Restart</button>
+    </div>
+  </div>
+  <div class="win hidden">
+    <div class="wind">
+      <h1>WIN</h1>  
+      <img src="FKR5.gif" alt="">
+      <p>Mission completed</p>
+      <button class="restart">Restart</button>
+    </div>
+  </div>
+
+  <div class="game"></div>
+
+  <div class="level"><h1>SNAKE</h1></div>
+
+  <div class="btn">
+    <div>
+      <h2>Mission: 10 Apples</h2>
+    </div>
+    <div class="row">
+      <h2>Score: <span class="score">0</span></h2>
+      <button class="stop">Restart</button>
+    </div>
+  </div>
+
+  <script src="classes.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

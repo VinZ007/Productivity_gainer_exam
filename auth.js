@@ -73,8 +73,6 @@ class AuthSystem {
         };
 
         stats.appendChild(createModeStats('productiveGainer'));
-        stats.appendChild(createModeStats('sleepHelper'));
-        stats.appendChild(createModeStats('darkMode'));
 
         profile.appendChild(stats);
         newUser.appendChild(profile);
@@ -148,8 +146,6 @@ class AuthSystem {
                     bio,
                     stats: {
                         productiveGainer: getModeStats('productiveGainer'),
-                        sleepHelper: getModeStats('sleepHelper'),
-                        darkMode: getModeStats('darkMode')
                     }
                 };
             }
@@ -206,7 +202,7 @@ class AuthSystem {
                     return mode;
                 };
 
-               /* const updateModeStats = (modeNode, data) => {
+               const updateModeStats = (modeNode, data) => {
                     const fields = ['narcissus', 'seastones', 'running', 'sessions'];
                     fields.forEach(field => {
                         if (data[field] !== undefined) {
@@ -224,14 +220,6 @@ class AuthSystem {
                     const mode = ensureMode('productiveGainer');
                     updateModeStats(mode, profileData.stats.productiveGainer);
                 }
-                if (profileData.stats.sleepHelper) {
-                    const mode = ensureMode('sleepHelper');
-                    updateModeStats(mode, profileData.stats.sleepHelper);
-                }
-                if (profileData.stats.darkMode) {
-                    const mode = ensureMode('darkMode');
-                    updateModeStats(mode, profileData.stats.darkMode);
-                }*/
             }
 
             this.saveXML(xmlDoc);

@@ -29,6 +29,16 @@ const logoutBtn = document.getElementById('logoutBtn');
 const nightModeBtn = document.getElementById('NightMode');
 const sleepHelperBtn = document.getElementById('Sleephelper');
 
+
+//ДЛЯ МОДАЛКИ С ИГРАМИ
+const breakModal = document.getElementById('breakModal');
+const breakTimeLeftSpan = document.getElementById('breakTimeLeft');
+const playSnakeBtn = document.getElementById('playSnakeBtn');
+const gameFrameDiv = document.getElementById('gameFrame');
+const closeBreakModalBtn = document.getElementById('closeBreakModal');
+let breakTimerInterval = null;
+const BREAK_DURATION = 7 * 60;
+
 let currentMusic = null;
 let totalSeconds = 1800;
 let initialTime = 1800;
@@ -438,6 +448,33 @@ function startTimer() {
                 currentMusic.pause();
                 currentMusic.currentTime = 0;
             }
+
+            const user = authSystem.getCurrentUser();
+            const profile = authSystem.getCurrentUserProfile();
+
+            if (user && profile) {
+                const currentStats = profile.stats.productiveGainer;
+
+                const updatedStats = {
+                    productiveGainer: {
+                        narcissus: currentStats.narcissus,
+                        seastones: currentStats.seastones,
+                        running: currentStats.running,
+                        sessions: currentStats.sessions + 1
+                    }
+                };
+
+                // добавляем время в выбранный режим
+                updatedStats.productiveGainer[selectedPlant] += initialTime;
+
+                authSystem.updateUserProfile(user.id, {
+                    stats: updatedStats
+                });
+
+
+                window.dispatchEvent(new Event('profileUpdated'));
+            }
+            showBreakModal();
         }
     }, 1000);
 }
@@ -465,6 +502,8 @@ function resetTimer() {
 }
 
 function stopTimer() {
+    if (!isRunning) return; // если не запущен — ничего не делать
+
     clearInterval(timerInterval);
     isRunning = false;
     startBtn.disabled = false;
@@ -472,6 +511,32 @@ function stopTimer() {
     if (currentMusic) {
         currentMusic.pause();
         currentMusic.currentTime = 0;
+    }
+
+    // Считаем сколько секунд прошло
+    const elapsedSeconds = initialTime - totalSeconds;
+
+    if (elapsedSeconds > 0 && selectedPlant && authSystem.isLoggedIn()) {
+        const user = authSystem.getCurrentUser();
+        const profile = authSystem.getCurrentUserProfile();
+
+        if (user && profile) {
+            const currentStats = profile.stats.productiveGainer;
+
+            const updatedStats = {
+                productiveGainer: {
+                    narcissus: currentStats.narcissus,
+                    seastones: currentStats.seastones,
+                    running: currentStats.running,
+                    sessions: currentStats.sessions + 1
+                }
+            };
+
+            // Добавляем прошедшее время в нужный режим
+            updatedStats.productiveGainer[selectedPlant] += elapsedSeconds;
+
+            authSystem.updateUserProfile(user.id, { stats: updatedStats });
+        }
     }
 }
 
@@ -614,9 +679,69 @@ function openGmail() {
 message.addEventListener('click', openGmail);
 
 // Установка начальной темы BMO (по умолчанию Narcissus)
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const bmoBody = document.querySelector('.bmo-body');
     if (bmoBody && !selectedPlant) {
         bmoBody.classList.add('theme-narcissus');
     }
+});
+
+
+function showBreakModal() {
+  // сбрасываем состояние
+  gameFrameDiv.style.display = 'none';
+  document.getElementById('gameSelector').style.display = 'block';
+  document.getElementById('snakeIframe').src = '';
+  
+  breakModal.showModal();
+  startBreakCountdown();
+}
+
+function startBreakCountdown() {
+  let remaining = BREAK_DURATION;
+  clearInterval(breakTimerInterval);
+
+  function updateDisplay() {
+    const m = Math.floor(remaining / 60);
+    const s = remaining % 60;
+    breakTimeLeftSpan.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+  }
+  updateDisplay();
+
+  breakTimerInterval = setInterval(() => {
+    remaining--;
+    updateDisplay();
+
+    if (remaining <= 0) {
+      clearInterval(breakTimerInterval);
+      // Показываем предупреждение внутри модалки вместо alert
+      breakTimeLeftSpan.textContent = 'Время вышло!';
+      breakTimeLeftSpan.style.color = '#ff5252';
+
+      setTimeout(() => {
+        breakModal.close();
+        document.getElementById('snakeIframe').src = '';
+        gameFrameDiv.style.display = 'none';
+        document.getElementById('gameSelector').style.display = 'block';
+      }, 2500);
+    }
+  }, 1000);
+}
+
+playSnakeBtn.addEventListener('click', () => {
+  document.getElementById('gameSelector').style.display = 'none';
+  gameFrameDiv.style.display = 'block';
+  document.getElementById('snakeIframe').src = 'games/snake/snake.html'; // путь к змейке
+});
+playClawBtn.addEventListener('click', () => {
+  document.getElementById('gameSelector').style.display = 'none';
+  gameFrameDiv.style.display = 'block';
+  document.getElementById('snakeIframe').src = 'games/claw_machine/index.html'; 
+});
+closeBreakModalBtn.addEventListener('click', () => {
+  clearInterval(breakTimerInterval);
+  breakModal.close();
+  document.getElementById('snakeIframe').src = '';
+  gameFrameDiv.style.display = 'none';
+  document.getElementById('gameSelector').style.display = 'block';
 });

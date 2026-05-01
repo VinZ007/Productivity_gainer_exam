@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Helper</title>
+    <link rel="stylesheet" href="sleep.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="bmo.css">
+</head>
+<body class="hide-scrollbar sleep-body">
+
+    <main class="sleep-page" id="page">
+        <div class="timer">
+            <div class="sleep-timer-title" id="timer-title">
+                <h1>Sleep Helper</h1>
+            </div>
+
+            <section class="userchoose">
+                <div class="sleep-timechoose" id="timechoose">
+                    <button data-time="600">10:00</button>
+                    <button data-time="1800">30:00</button>
+                    <button data-time="3600">60:00</button>
+                </div>
+                <div class="sleep-plant" id="plant">
+                    <button id="openPlantModal" class="open-jukebox-btn">Choose Your Widget</button>
+                </div>
+            </section>
+
+            <div class="sleep-timer-clock" id="timer">30:00</div>
+
+            <div class="plant_container">
+                <div class="plant_stages">
+                    <img id="plantStage1" class="plant_stage active" src="img/sleep_helper/fish.png" alt="Stage 1">
+                </div>
+            </div>
+
+            <div class="timer_time">
+                <button class="timer_start" id="start"><i class="bi bi-play-fill"></i></button>
+                <button class="timer_reset" id="reset"><i class="bi bi-arrow-clockwise"></i></button>
+                <button class="timer_stop" id="stop"><i class="bi bi-stop-fill"></i></button>
+            </div>
+        </div>
+
+        <dialog id="plantModal" class="hide-scrollbar modal sleep-modal">
+            <div class="jukebox-modal">
+
+                <header class="jukebox-header">
+                    <div class="jukebox-neon-text">Choose Your Sound</div>
+                    <span class="close-modal jukebox-close">&times;</span>
+                </header>
+
+                <div class="jukebox-body">
+
+                    <div class="now-playing-panel" id="nowPlayingPanel">
+                        <div class="now-playing-cover" id="nowPlayingCover">
+                            <div class="cover-placeholder">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(180,140,255,0.4)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+                            </div>
+                        </div>
+                        <div class="now-playing-info">
+                            <div class="now-playing-title" id="nowPlayingTitle">Select a track</div>
+                            <div class="now-playing-sub" id="nowPlayingSub">—</div>
+                            <div class="now-playing-progress" id="nowPlayingProgress" style="display:none">
+                                <div class="np-bar-track"><div class="np-bar-fill" id="npBarFill"></div></div>
+                                <span class="np-time" id="npTime">0:00</span>
+                            </div>
+                        </div>
+                        <button class="np-play-btn" id="npPlayBtn" style="display:none">
+                            <i class="bi bi-play-fill" id="npPlayIcon"></i>
+                        </button>
+                    </div>
+
+                    <div id="fullscreen">
+                        <div class="gallery centerized" id="gallery">
+
+                        </div>
+                    </div>
+
+                    <button id="ApplySelection" class="ApplySelection">Apply Selection</button>
+                </div>
+            </div>
+        </dialog>
+
+        <audio id="fishmusic" loop src="music/Art_Deco.mp3"></audio>
+        <audio id="privatemusic" loop src="music/Private.mp3"></audio>
+        <audio id="scolomusic" loop src="music/red.mp3"></audio>
+        <audio id="japanmusic" loop src="music/White_Ferrari.mp3"></audio>
+        <audio id="ravenmusic" loop src="music/scrmn.mp3"></audio>
+        <audio id="jellyfishmusic" loop src="music/tattoos.mp3"></audio>
+        <audio id="chihiromusic" loop src="music/Chihiro.mp3"></audio>
+        <audio id="previewAudio"></audio>
+    </main>
+
+    <!-- Side menu -->
+    <div class="menu">
+        <div class="menu_handle" id="menu_handle">
+            <i class="bi bi-arrow-left-circle"></i>
+            <i class="bi bi-arrow-right-circle" style="display: none;"></i>
+        </div>
+        <div class="menu_content" id="menu_content">
+
+            <div  id="userBtn">
+                <button onclick="window.location.href='account.html'" data-tt="profile">Profile</button>
+                <button onclick="window.location.href='Productivity_Gainer.html'" data-tt="productiveMode">Productivity Mode</button>
+                <button data-tt="logOut" id="logoutBtn">Log Out</button>
+                <button id="langToggleBtn">Русский</button>
+            </div>
+            <footer>2026 | 1 КУРС | БГТУ</footer>
+        </div>
+    </div>
+
+    <!-- BMO -->
+    <div class="bmo-body theme-sleep" id="message">
+        <span class="bmo-tooltip">Обратная связь</span>
+        <section class="bmo-container">
+            <div class="bmo">
+                <div class="body">
+                    <div class="face">
+                        <div class="glass"></div>
+                        <div class="facials">
+                            <div class="eye"></div>
+                            <div class="mouth"></div>
+                            <div class="eye"></div>
+                        </div>
+                        <div class="drop-base"><div class="drop"></div></div>
+                    </div>
+                    <div class="controls">
+                        <div class="controls-left">
+                            <div class="cross-vert"></div>
+                            <div class="cross-hor"></div>
+                        </div>
+                        <div class="controls-right">
+                            <div class="button-top"></div>
+                            <div class="button-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="arms">
+                        <div class="arm arm-left"></div>
+                        <div class="arm arm-right"></div>
+                    </div>
+                    <div class="head">
+                        <div class="head-top"></div>
+                        <div class="head-bottom"></div>
+                    </div>
+                    <div class="features">
+                        <div class="feature-vert"></div>
+                        <div class="feature-hor"></div>
+                        <div class="feature-block">
+                            <div class="block-el"></div>
+                            <div class="block-el"></div>
+                            <div class="block-el"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="legs">
+                    <div class="leg leg-left"></div>
+                    <div class="leg leg-right"></div>
+                </div>
+            </div>
+            <div class="floor"></div>
+        </section>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="sleep.js"></script>
+</body>
+</html>

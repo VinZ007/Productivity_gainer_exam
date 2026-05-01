@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #eee;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.game {
+  position: relative;
+  margin: 0 auto;
+  padding: 2px;
+  width: 600px;
+  aspect-ratio: 1/1;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(21, 1fr);
+  gap: 2px;
+}
+
+.cell {
+  border: 3px solid gray;
+  aspect-ratio: 1/1;
+}
+
+.cell-body {
+  border-color: greenyellow;
+  background-color: rgb(109, 160, 32);
+}
+
+.cell-apple {
+  border-color: crimson;
+  background-color: rgb(179, 20, 51);
+}
+
+.cell-poison {
+  border-color: rgb(163, 20, 220);
+  background-color: rgb(132, 14, 168);
+}
+
+.level {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.level h1 {
+  font-size: 3em;
+  letter-spacing: 4px;
+  background: linear-gradient(45deg, #f6d365, #fda085);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  font-weight: 700;
+  margin: 0.2em;
+}
+
+.btn {
+  max-width: 600px;
+  margin: 10px auto;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 15px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn div:first-child h2 {
+  font-weight: 600;
+  font-size: 1.3em;
+  color: #ffd700;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.row h2 {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.row h2 span {
+  font-weight: 700;
+  color: #f6d365;
+}
+
+.stop, .restart, .wind > button {
+  padding: 12px 28px;
+  font-size: 1.1em;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+
+.stop:hover, .restart:hover, .wind > button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #56d4a0, #1f6eb0);
+}
+
+.stop:active, .restart:active, .wind > button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.game_over, .win {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.game_over {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.win {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+}
+
+.wind {
+  background: rgba(20, 20, 40, 0.7);
+  border-radius: 30px;
+  padding: 30px 40px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.win .wind {
+  background: rgba(255, 255, 255, 0.7);
+  color: #333;
+  backdrop-filter: blur(10px);
+}
+
+.wind h1 {
+  font-size: 3em;
+  margin: 0 0 15px;
+  font-weight: 700;
+}
+
+.game_over .wind h1 {
+  color: #ff4d4d;
+  text-shadow: 0 0 10px rgba(255,0,0,0.7);
+}
+
+.win .wind h1 {
+  color: #2ecc71;
+  text-shadow: 0 0 10px rgba(46,204,113,0.5);
+}
+
+.wind p {
+  font-size: 1.5em;
+  margin: 10px 0 20px;
+}
+
+.wind img {
+  max-width: 150px;
+  margin: 15px 0;
+  border-radius: 10px;
+}
+
+.game_over .wind > button {
+  background: linear-gradient(135deg, #f12711, #f5af19);
+}
+
+.game_over .wind > button:hover {
+  background: linear-gradient(135deg, #f53b2b, #f7c43a);
+}
+
+.win .wind > button {
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+.win .wind > button:hover {
+  background: linear-gradient(135deg, #1eb2a6, #4ffb8c);
+}
+
+.hidden {
+  display: none !important;
+}
