@@ -21,6 +21,8 @@
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     border: 2px solid #3a6b50;
     animation: modalFadeIn 0.3s ease;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .modal-content-sea {
@@ -33,6 +35,8 @@
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     border: 2px solid #4300FF;
     animation: modalFadeIn 0.3s ease;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .modal-content-run {
@@ -45,6 +49,14 @@
     box-shadow: 0 15px 40px rgba(147, 1, 1, 0.4);
     border: 2px solid #C60021;
     animation: modalFadeIn 0.3s ease;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.modal-content::-webkit-scrollbar,
+.modal-content-sea::-webkit-scrollbar,
+.modal-content-run::-webkit-scrollbar {
+    display: none;
 }
 
 @keyframes modalFadeIn {

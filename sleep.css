@@ -384,6 +384,12 @@ body.sleep-body::before {
     transition: all 0.3s ease;
     max-height: 500px;
     overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#fullscreen::-webkit-scrollbar {
+    display: none;
 }
 
 #fullscreen.expanded {
@@ -410,6 +416,12 @@ body.sleep-body::before {
 }
 .gallery::-webkit-scrollbar {
     display: none;
+}
+
+.gallery::after {
+    content: '';
+    min-width: 40px;
+    flex-shrink: 0;
 }
 
 .album-card {
