@@ -13,7 +13,7 @@
     <main class="sleep-page" id="page">
         <div class="timer">
             <div class="sleep-timer-title" id="timer-title">
-                <h1>Sleep Helper</h1>
+                <h1 data-tt="timer_title">Sleep Helper</h1>
             </div>
 
             <section class="userchoose">
@@ -23,7 +23,7 @@
                     <button data-time="3600">60:00</button>
                 </div>
                 <div class="sleep-plant" id="plant">
-                    <button id="openPlantModal" class="open-jukebox-btn">Choose Your Widget</button>
+                    <button id="openPlantModal" class="open-jukebox-btn" data-tt="chooseWidget">Choose Your Widget</button>
                 </div>
             </section>
 
@@ -31,7 +31,7 @@
 
             <div class="plant_container">
                 <div class="plant_stages">
-                    <img id="plantStage1" class="plant_stage active" src="img/sleep_helper/fish.png" alt="Stage 1">
+                    <img id="plantStage1" class="plant_stage active" src="img/sleep_helper/art_deco.png" alt="Stage 1">
                 </div>
             </div>
 
@@ -46,7 +46,7 @@
             <div class="jukebox-modal">
 
                 <header class="jukebox-header">
-                    <div class="jukebox-neon-text">Choose Your Sound</div>
+                    <div class="jukebox-neon-text" data-tt="sectionMusic">Choose Your Sound</div>
                     <span class="close-modal jukebox-close">&times;</span>
                 </header>
 
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         <div class="now-playing-info">
-                            <div class="now-playing-title" id="nowPlayingTitle">Select a track</div>
+                            <div class="now-playing-title" id="nowPlayingTitle" data-tt="selectTrack">Select a track</div>
                             <div class="now-playing-sub" id="nowPlayingSub">—</div>
                             <div class="now-playing-progress" id="nowPlayingProgress" style="display:none">
                                 <div class="np-bar-track"><div class="np-bar-fill" id="npBarFill"></div></div>
@@ -77,7 +77,7 @@
                         </div>
                     </div>
 
-                    <button id="ApplySelection" class="ApplySelection">Apply Selection</button>
+                    <button id="ApplySelection" class="ApplySelection" data-tt="applyBtn">Apply Selection</button>
                 </div>
             </div>
         </dialog>
@@ -103,7 +103,6 @@
             <div  id="userBtn">
                 <button onclick="window.location.href='account.html'" data-tt="profile">Profile</button>
                 <button onclick="window.location.href='Productivity_Gainer.html'" data-tt="productiveMode">Productivity Mode</button>
-                <button data-tt="logOut" id="logoutBtn">Log Out</button>
                 <button id="langToggleBtn">Русский</button>
             </div>
             <footer>2026 | 1 КУРС | БГТУ</footer>
@@ -112,7 +111,7 @@
 
     <!-- BMO -->
     <div class="bmo-body theme-sleep" id="message">
-        <span class="bmo-tooltip">Обратная связь</span>
+        <span class="bmo-tooltip" data-tt="bmo">Обратная связь</span>
         <section class="bmo-container">
             <div class="bmo">
                 <div class="body">

@@ -33,7 +33,7 @@ const widgetsData = {
         name: 'Art Deco',
         subtitle: 'A1',
         music: document.getElementById('fishmusic'),
-        images: ['img/sleep_helper/fish.png', 'img/sleep_helper/private_album.png'],
+        images: ['img/sleep_helper/art_deco.png', 'img/sleep_helper/private_album.png'],
     },
     shark: {
         name: 'Private',
@@ -45,7 +45,7 @@ const widgetsData = {
         name: 'Your Mother Was Cheaper',
         subtitle: 'A3',
         music: document.getElementById('scolomusic'),
-        images: ['img/sleep_helper/fish.png', 'img/sleep_helper/private_album.png'],
+        images: ['img/sleep_helper/scolo.png', 'img/sleep_helper/private_album.png'],
     },
     japan: {
         name: 'White Ferarri',
@@ -96,7 +96,7 @@ function initializeGallery() {
                     <img src="${coverImage}" alt="Album cover for ${widget.name}">
                 </div>
             </div>
-            <div class="album-label">${widget.name}</div>
+            <div class="album-label" data-tt="album_${key}">${widget.name}</div>
         `;
         
         albumCard.addEventListener('click', () => selectAlbum(index, key, albumCard, true));
@@ -111,6 +111,8 @@ function initializeGallery() {
             galleryDiv.scrollLeft = Math.max(0, firstCard.offsetLeft - 40);
         }, 50);
     }
+    nowPlayingTitle.textContent = 'Select a track';
+    nowPlayingTitle.setAttribute('data-tt', 'selectTrack');
 }
 
 function applyCoverFlow(selectedIndex) {
@@ -137,6 +139,7 @@ function selectAlbum(index, key, element, playPreview) {
 
     const widget = widgetsData[key];
     nowPlayingTitle.textContent = widget.name;
+    nowPlayingTitle.setAttribute('data-tt', `album_${key}`);
     nowPlayingSub.textContent = widget.subtitle;
     document.getElementById('nowPlayingProgress').style.display = 'flex';
     updatePreviewButton(key);
@@ -181,7 +184,7 @@ function updatePreviewButton(key) {
 npPlayBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     if (!selectedMusic) {
-        alert('Please select a track');
+        // alert('Please select a track');
         return;
     }
     const widget = widgetsData[selectedMusic];
@@ -332,6 +335,7 @@ applyBtn.addEventListener('click', () => {
     }
     const widget = widgetsData[selectedWidget];
     openPlantModalBtn.textContent = widget.name;
+    openPlantModalBtn.setAttribute('data-tt', `album_${selectedWidget}`);
     plantModal.close();
 });
 
@@ -367,7 +371,97 @@ if (typeof authSystem !== 'undefined' && authSystem.isLoggedIn()) {
     if (userBtn) userBtn.style.display = 'none';
 }
 
+const translations = {
+    en: {
+        timer_title: 'Sleep Helper',
+        chooseWidget: 'Choose Your Widget',
+        sectionMusic: 'Choose Music',
+        applyBtn: 'Apply Selection',
+        profile: 'Profile',
+        productiveMode: 'Productivity Mode',
+
+        // Альбомы
+        album_fish: 'Art Deco',
+        album_shark: 'Private',
+        album_scolo: 'Your Mother Was Cheaper',
+        album_japan: 'White Ferrari',
+        album_raven: 'Scream My Name',
+        album_jellyfish: 'Tattoos',
+        album_chihiro: 'CHIHIRO',
+
+        // UI элементы
+        selectTrack: 'Select a track',
+        langBtnLabel: 'Русский',
+        //
+        bmo: 'Feedback',
+    },
+
+    ru: {
+        timer_title: 'Помощник сна',
+        chooseWidget: 'Выбрать виджет',
+        sectionMusic: 'Выберите музыку',
+        applyBtn: 'Применить выбор',
+        profile: 'Профиль',
+        productiveMode: 'Режим продуктивности',
+
+        // Альбомы
+        album_fish: 'Art Deco',
+        album_shark: 'Private',
+        album_scolo: 'Your Mother Was Cheaper',
+        album_japan: 'White Ferrari',
+        album_raven: 'Scream My Name',
+        album_jellyfish: 'Tattoos',
+        album_chihiro: 'CHIHIRO',
+
+        // UI элементы
+        selectTrack: 'Выберите трек',
+        langBtnLabel: 'English',
+        bmo: 'Обратная связь',
+    }
+};
+
+
+let currentLang = localStorage.getItem('pg_lang') || 'en';
+
+function getItemTranslate(item) {
+    if (translations[currentLang][item] != undefined) {
+        return translations[currentLang][item];
+    }
+    else {
+        return item;
+    }
+}
+
+
+function applyTranslate() {
+    document.querySelectorAll('[data-tt]').forEach(element => {
+        const item = element.dataset.tt;
+        const text = getItemTranslate(item);
+        if (text !== undefined) element.textContent = text;
+    });
+    
+    const langBtn = document.getElementById('langToggleBtn');
+    if (langBtn) {
+        langBtn.textContent = getItemTranslate('langBtnLabel');
+    }
+
+    document.documentElement.lang = currentLang;
+}
+
+function toggleLanguage() {
+    if (currentLang === 'en') {
+        currentLang = 'ru';
+    } else {
+        currentLang = 'en';
+    }
+    localStorage.setItem('pg_lang', currentLang);
+    applyTranslate();
+}
+
+document.getElementById('langToggleBtn').addEventListener('click', toggleLanguage);
+
 document.addEventListener('DOMContentLoaded', () => {
+    applyTranslate();
     initializeGallery();
     updateTimerDisplay();
 
@@ -378,7 +472,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Устанавливаем выбранный виджет по умолчанию
         selectedWidget = defaultWidget;
         selectedMusic = defaultWidget;
-        applyTheme(defaultWidget);
         updatePlantImages(defaultWidget);
     }
 });

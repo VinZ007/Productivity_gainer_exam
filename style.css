@@ -33,6 +33,42 @@ footer {
     display: flex;
     
 }
+
+
+.bmo-body {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.bmo-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 70, 34, 0.9);
+    color: #e0d4ff;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-family: 'Exo 2', sans-serif;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    border: 1px solid rgba(80, 240, 101, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    margin-bottom: 6px;
+    z-index: 1000;
+}
+
+.bmo-body:hover .bmo-tooltip {
+    opacity: 1;
+}
+
 .menu {
     position: fixed;
     top: 0;

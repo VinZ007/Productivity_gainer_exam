@@ -100,6 +100,8 @@ const translations = {
 
         // Кнопка переключателя 
         langBtnLabel: 'Русский',
+
+        bmo: 'Feedback',
     },
 
     ru: {
@@ -146,6 +148,7 @@ const translations = {
         noneLabel: 'Нет',
 
         langBtnLabel: 'English',
+        bmo: 'Обратная связь',
     }
 };
 
@@ -198,8 +201,6 @@ function toggleLanguage() {
     localStorage.setItem('pg_lang', currentLang);
     applyTranslate();
 }
-
-document.getElementById('langToggle').addEventListener('click', toggleLanguage);
 document.getElementById('langToggleBtn').addEventListener('click', toggleLanguage);
 if (selectedPlantSpan) {
     selectedPlantSpan.dataset.key = 'none';
@@ -688,60 +689,60 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function showBreakModal() {
-  // сбрасываем состояние
-  gameFrameDiv.style.display = 'none';
-  document.getElementById('gameSelector').style.display = 'block';
-  document.getElementById('snakeIframe').src = '';
-  
-  breakModal.showModal();
-  startBreakCountdown();
+    // сбрасываем состояние
+    gameFrameDiv.style.display = 'none';
+    document.getElementById('gameSelector').style.display = 'block';
+    document.getElementById('snakeIframe').src = '';
+
+    breakModal.showModal();
+    startBreakCountdown();
 }
 
 function startBreakCountdown() {
-  let remaining = BREAK_DURATION;
-  clearInterval(breakTimerInterval);
+    let remaining = BREAK_DURATION;
+    clearInterval(breakTimerInterval);
 
-  function updateDisplay() {
-    const m = Math.floor(remaining / 60);
-    const s = remaining % 60;
-    breakTimeLeftSpan.textContent = `${m}:${s.toString().padStart(2, '0')}`;
-  }
-  updateDisplay();
-
-  breakTimerInterval = setInterval(() => {
-    remaining--;
+    function updateDisplay() {
+        const m = Math.floor(remaining / 60);
+        const s = remaining % 60;
+        breakTimeLeftSpan.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+    }
     updateDisplay();
 
-    if (remaining <= 0) {
-      clearInterval(breakTimerInterval);
-      // Показываем предупреждение внутри модалки вместо alert
-      breakTimeLeftSpan.textContent = 'Время вышло!';
-      breakTimeLeftSpan.style.color = '#ff5252';
+    breakTimerInterval = setInterval(() => {
+        remaining--;
+        updateDisplay();
 
-      setTimeout(() => {
-        breakModal.close();
-        document.getElementById('snakeIframe').src = '';
-        gameFrameDiv.style.display = 'none';
-        document.getElementById('gameSelector').style.display = 'block';
-      }, 2500);
-    }
-  }, 1000);
+        if (remaining <= 0) {
+            clearInterval(breakTimerInterval);
+            // Показываем предупреждение внутри модалки вместо alert
+            breakTimeLeftSpan.textContent = 'Время вышло!';
+            breakTimeLeftSpan.style.color = '#ff5252';
+
+            setTimeout(() => {
+                breakModal.close();
+                document.getElementById('snakeIframe').src = '';
+                gameFrameDiv.style.display = 'none';
+                document.getElementById('gameSelector').style.display = 'block';
+            }, 2500);
+        }
+    }, 1000);
 }
 
 playSnakeBtn.addEventListener('click', () => {
-  document.getElementById('gameSelector').style.display = 'none';
-  gameFrameDiv.style.display = 'block';
-  document.getElementById('snakeIframe').src = 'games/snake/snake.html'; // путь к змейке
+    document.getElementById('gameSelector').style.display = 'none';
+    gameFrameDiv.style.display = 'block';
+    document.getElementById('snakeIframe').src = 'games/snake/snake.html'; // путь к змейке
 });
 playClawBtn.addEventListener('click', () => {
-  document.getElementById('gameSelector').style.display = 'none';
-  gameFrameDiv.style.display = 'block';
-  document.getElementById('snakeIframe').src = 'games/claw_machine/index.html'; 
+    document.getElementById('gameSelector').style.display = 'none';
+    gameFrameDiv.style.display = 'block';
+    document.getElementById('snakeIframe').src = 'games/claw_machine/index.html';
 });
 closeBreakModalBtn.addEventListener('click', () => {
-  clearInterval(breakTimerInterval);
-  breakModal.close();
-  document.getElementById('snakeIframe').src = '';
-  gameFrameDiv.style.display = 'none';
-  document.getElementById('gameSelector').style.display = 'block';
+    clearInterval(breakTimerInterval);
+    breakModal.close();
+    document.getElementById('snakeIframe').src = '';
+    gameFrameDiv.style.display = 'none';
+    document.getElementById('gameSelector').style.display = 'block';
 });

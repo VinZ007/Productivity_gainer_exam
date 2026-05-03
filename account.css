@@ -42,10 +42,21 @@ body {
     font-weight: 700;
 }
 
-.stat-card-value--green  { color: #4caf50; }
-.stat-card-value--blue   { color: #00caff; }
-.stat-card-value--orange { color: #ff6600; }
-.stat-card-value--lime   { color: #81c784; }
+.stat-card-value--green {
+    color: #4caf50;
+}
+
+.stat-card-value--blue {
+    color: #00caff;
+}
+
+.stat-card-value--orange {
+    color: #ff6600;
+}
+
+.stat-card-value--lime {
+    color: #81c784;
+}
 
 #bannerImage,
 #bioEdit {
@@ -91,7 +102,7 @@ body {
     max-width: 1000px;
     width: 100%;
     height: auto;
-    min-height: 800px;
+    min-height: 700px;
     background-color: #1a3c2f;
     border-radius: 24px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
@@ -101,10 +112,11 @@ body {
     margin-top: 40px;
 }
 
-h3{
+h3 {
     color: white;
     margin-bottom: 5px;
 }
+
 .profile-card {
     background: rgba(14, 26, 7, 0.85);
     border-radius: 15px;
@@ -194,6 +206,7 @@ h3{
 
 .profile-name {
     font-size: 28px;
+    color: #c8e6c9;
     font-weight: 700;
     margin-bottom: 5px;
     font-family: 'Sofia Sans', sans-serif;
@@ -283,12 +296,13 @@ h3{
     box-shadow: 0 5px 15px rgba(44, 87, 44, 0.4);
 }
 
-.stats-grid{
+.stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 15px; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
     margin-bottom: 30px;
 }
+
 input[type="file"] {
     display: none;
 }
@@ -299,11 +313,13 @@ input[type="file"] {
     border-radius: 8px;
     font-weight: 500;
 }
+
 .message.success {
     background: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
 }
+
 .message.error {
     background: #f8d7da;
     color: #721c24;
