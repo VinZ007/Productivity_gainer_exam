@@ -34,8 +34,23 @@ const sleepHelperBtn = document.getElementById('Sleephelper');
 const breakModal = document.getElementById('breakModal');
 const breakTimeLeftSpan = document.getElementById('breakTimeLeft');
 const playSnakeBtn = document.getElementById('playSnakeBtn');
+const playClawBtn = document.getElementById('playClawBtn');
 const gameFrameDiv = document.getElementById('gameFrame');
 const closeBreakModalBtn = document.getElementById('closeBreakModal');
+
+if (!breakModal) {
+    console.error('breakModal element not found!');
+}
+if (!playSnakeBtn) {
+    console.error('playSnakeBtn element not found!');
+}
+if (!playClawBtn) {
+    console.error('playClawBtn element not found!');
+}
+if (!gameFrameDiv) {
+    console.error('gameFrameDiv element not found!');
+}
+
 let breakTimerInterval = null;
 const BREAK_DURATION = 7 * 60;
 
@@ -475,6 +490,7 @@ function startTimer() {
 
                 window.dispatchEvent(new Event('profileUpdated'));
             }
+            console.log('Timer finished, showing break modal');
             showBreakModal();
         }
     }, 1000);
@@ -694,8 +710,12 @@ function showBreakModal() {
     document.getElementById('gameSelector').style.display = 'block';
     document.getElementById('snakeIframe').src = '';
 
-    breakModal.showModal();
-    startBreakCountdown();
+    if (breakModal && typeof breakModal.showModal === 'function') {
+        breakModal.showModal();
+        startBreakCountdown();
+    } else {
+        console.error('breakModal not found or showModal is not available', breakModal);
+    }
 }
 
 function startBreakCountdown() {
@@ -715,7 +735,6 @@ function startBreakCountdown() {
 
         if (remaining <= 0) {
             clearInterval(breakTimerInterval);
-            // Показываем предупреждение внутри модалки вместо alert
             breakTimeLeftSpan.textContent = 'Время вышло!';
             breakTimeLeftSpan.style.color = '#ff5252';
 
