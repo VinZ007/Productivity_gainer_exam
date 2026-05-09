@@ -60,6 +60,7 @@ label {
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
+
 }
 
 .input:hover,
@@ -81,6 +82,7 @@ label {
     color: white;
     flex-grow: 1;
     font-size: 15px;
+    padding-left: 8px;
     font-family: 'Fira Sans', sans-serif;
 }
 
