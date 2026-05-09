@@ -1,4 +1,4 @@
-const SIZE = 21;
+const SIZE = 15;
 
 const gameDiv = document.querySelector('.game');
 
