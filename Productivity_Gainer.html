@@ -20,7 +20,7 @@
                 </div>
                 <section class="userchoose">
                     <div class="timechoose" id="timechoose">
-                        <button data-time="10">10:00</button>
+                        <button data-time="600">10:00</button>
                         <button data-time="1200">20:00</button>
                         <button data-time="1800">30:00</button>
                     </div>
@@ -56,46 +56,177 @@
                         <div class="plant-grid">
 
                             <div class="plant-option widget-option" data-widget="narcissus">
-                                <div class="plant-icon">🌼</div>
+                                <div class="plant-icon">
+                                    <svg viewBox="0 0 64 64" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- стебель -->
+                                        <line x1="32" y1="62" x2="32" y2="30" stroke="#4caf50" stroke-width="2.5"
+                                            stroke-linecap="round" />
+                                        <!-- листья -->
+                                        <path d="M32 48 Q20 42 18 30 Q28 34 32 48Z" fill="#66bb6a" />
+                                        <path d="M32 44 Q44 38 46 26 Q36 30 32 44Z" fill="#81c784" />
+                                        <!-- лепестки -->
+                                        <ellipse cx="32" cy="18" rx="5" ry="10" fill="#fff9c4"
+                                            transform="rotate(0 32 28)" />
+                                        <ellipse cx="32" cy="18" rx="5" ry="10" fill="#fff9c4"
+                                            transform="rotate(60 32 28)" />
+                                        <ellipse cx="32" cy="18" rx="5" ry="10" fill="#fff9c4"
+                                            transform="rotate(120 32 28)" />
+                                        <ellipse cx="32" cy="18" rx="5" ry="10" fill="#fff176"
+                                            transform="rotate(180 32 28)" />
+                                        <ellipse cx="32" cy="18" rx="5" ry="10" fill="#fff176"
+                                            transform="rotate(240 32 28)" />
+                                        <ellipse cx="32" cy="18" rx="5" ry="10" fill="#fff176"
+                                            transform="rotate(300 32 28)" />
+                                        <!-- сердцевина -->
+                                        <circle cx="32" cy="28" r="6" fill="#fdd835" />
+                                        <circle cx="32" cy="28" r="3" fill="#f9a825" />
+                                    </svg>
+                                </div>
                                 <h3 data-tt="widget_narcissus_name">Narcissus</h3>
                                 <p data-tt="widget_narcissus_desc">Нарцисс</p>
                             </div>
+
                             <div class="plant-option widget-option" data-widget="seastones">
-                                <div class="plant-icon">🌊</div>
+                                <div class="plant-icon">
+                                    <svg viewBox="0 0 64 64" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- камни -->
+                                        <ellipse cx="20" cy="46" rx="14" ry="9" fill="#546e7a" />
+                                        <ellipse cx="44" cy="48" rx="11" ry="7" fill="#455a64" />
+                                        <ellipse cx="33" cy="43" rx="9" ry="6" fill="#607d8b" />
+                                        <ellipse cx="13" cy="44" rx="5" ry="4" fill="#78909c" />
+                                        <!-- волны -->
+                                        <path d="M4 28 Q13 22 22 28 Q31 34 40 28 Q49 22 60 28" fill="none"
+                                            stroke="#4fc3f7" stroke-width="2.5" stroke-linecap="round" />
+                                        <path d="M4 36 Q13 30 22 36 Q31 42 40 36 Q49 30 60 36" fill="none"
+                                            stroke="#29b6f6" stroke-width="2.5" stroke-linecap="round" />
+                                        <path d="M4 20 Q13 14 22 20 Q31 26 40 20 Q49 14 60 20" fill="none"
+                                            stroke="#81d4fa" stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                </div>
                                 <h3 data-tt="widget_seastones_name">Sea Stones</h3>
                                 <p data-tt="widget_seastones_desc">Морские камни</p>
                             </div>
+
                             <div class="plant-option widget-option" data-widget="running">
-                                <div class="plant-icon">🧍🏻‍♂️</div>
+                                <div class="plant-icon">
+                                    <svg viewBox="0 0 64 64" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- голова -->
+                                        <circle cx="40" cy="10" r="6" fill="#ffcc80" />
+                                        <!-- тело -->
+                                        <line x1="40" y1="16" x2="34" y2="32" stroke="#ff8a65" stroke-width="3"
+                                            stroke-linecap="round" />
+                                        <!-- правая рука (назад) -->
+                                        <line x1="38" y1="20" x2="50" y2="28" stroke="#ff8a65" stroke-width="2.5"
+                                            stroke-linecap="round" />
+                                        <!-- левая рука (вперёд) -->
+                                        <line x1="36" y1="22" x2="24" y2="16" stroke="#ff8a65" stroke-width="2.5"
+                                            stroke-linecap="round" />
+                                        <!-- правая нога (вперёд) -->
+                                        <line x1="34" y1="32" x2="22" y2="46" stroke="#ff8a65" stroke-width="2.5"
+                                            stroke-linecap="round" />
+                                        <line x1="22" y1="46" x2="14" y2="56" stroke="#ff8a65" stroke-width="2.5"
+                                            stroke-linecap="round" />
+                                        <!-- левая нога (назад) -->
+                                        <line x1="34" y1="32" x2="44" y2="44" stroke="#ff8a65" stroke-width="2.5"
+                                            stroke-linecap="round" />
+                                        <line x1="44" y1="44" x2="52" y2="54" stroke="#ff8a65" stroke-width="2.5"
+                                            stroke-linecap="round" />
+                                        <!-- линия земли -->
+                                        <line x1="8" y1="58" x2="56" y2="58" stroke="#a5d6a7" stroke-width="1.5"
+                                            stroke-dasharray="4 3" stroke-linecap="round" />
+                                    </svg>
+                                </div>
                                 <h3 data-tt="widget_running_name">Running Guy</h3>
                                 <p data-tt="widget_running_desc">Бегущий человек</p>
                             </div>
                         </div>
+
                         <h3 data-tt="sectionMusic">Choose Music</h3>
                         <div class="plant-grid">
 
                             <div class="music-option" data-music="narcissus">
-                                <div class="music-icon">🎵</div>
+                                <div class="music-icon">
+                                    <svg viewBox="0 0 64 64" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse cx="20" cy="50" rx="10" ry="7" fill="#ce93d8" />
+                                        <line x1="30" y1="50" x2="30" y2="14" stroke="#ce93d8" stroke-width="3"
+                                            stroke-linecap="round" />
+                                        <line x1="30" y1="14" x2="48" y2="20" stroke="#ce93d8" stroke-width="3"
+                                            stroke-linecap="round" />
+                                        <line x1="48" y1="20" x2="48" y2="34" stroke="#ce93d8" stroke-width="3"
+                                            stroke-linecap="round" />
+                                        <ellipse cx="38" cy="39" rx="10" ry="7" fill="#ba68c8" />
+                                    </svg>
+                                </div>
                                 <h3 data-tt="music_narcissus_name">Ruler Of My Heart</h3>
                                 <p data-tt="music_narcissus_desc">Рекомендуется для Narcissus</p>
                             </div>
+
                             <div class="music-option" data-music="seastones">
-                                <div class="music-icon">🎶</div>
+                                <div class="music-icon">
+                                    <svg viewBox="0 0 64 64" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- нота 1 -->
+                                        <ellipse cx="16" cy="50" rx="9" ry="6" fill="#80cbc4" />
+                                        <line x1="25" y1="50" x2="25" y2="16" stroke="#80cbc4" stroke-width="3"
+                                            stroke-linecap="round" />
+                                        <!-- нота 2 -->
+                                        <ellipse cx="36" cy="44" rx="9" ry="6" fill="#4db6ac" />
+                                        <line x1="45" y1="44" x2="45" y2="10" stroke="#4db6ac" stroke-width="3"
+                                            stroke-linecap="round" />
+                                        <!-- перемычка -->
+                                        <line x1="25" y1="16" x2="45" y2="10" stroke="#4db6ac" stroke-width="3"
+                                            stroke-linecap="round" />
+                                        <line x1="25" y1="22" x2="45" y2="16" stroke="#80cbc4" stroke-width="2.5"
+                                            stroke-linecap="round" />
+                                    </svg>
+                                </div>
                                 <h3 data-tt="music_seastones_name">My Clematis</h3>
                                 <p data-tt="music_seastones_desc">Рекомендуется для Sea Stones</p>
                             </div>
+
                             <div class="music-option" data-music="running">
-                                <div class="music-icon">🎸</div>
+                                <div class="music-icon">
+                                    <svg viewBox="0 0 64 64" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- корпус гитары -->
+                                        <ellipse cx="28" cy="46" rx="14" ry="12" fill="#ff8a65" />
+                                        <ellipse cx="28" cy="46" rx="9" ry="8" fill="#e64a19" opacity="0.5" />
+                                        <!-- дека (звуковое отверстие) -->
+                                        <circle cx="28" cy="46" r="4" fill="none" stroke="#bf360c" stroke-width="1.5" />
+                                        <!-- гриф -->
+                                        <rect x="26" y="6" width="4" height="36" rx="2" fill="#ffb74d" />
+                                        <!-- головка -->
+                                        <rect x="22" y="4" width="12" height="6" rx="3" fill="#ffa726" />
+                                        <!-- струны -->
+                                        <line x1="25" y1="10" x2="22" y2="40" stroke="#e0e0e0" stroke-width="0.8" />
+                                        <line x1="28" y1="10" x2="28" y2="40" stroke="#e0e0e0" stroke-width="0.8" />
+                                        <line x1="31" y1="10" x2="34" y2="40" stroke="#e0e0e0" stroke-width="0.8" />
+                                    </svg>
+                                </div>
                                 <h3 data-tt="music_running_name">All-in</h3>
                                 <p data-tt="music_running_desc">Рекомендуется для Running Guy</p>
                             </div>
+
                             <div class="music-option" data-music="custom">
-                                <div class="music-icon">📁</div>
+                                <div class="music-icon">
+                                    <svg viewBox="0 0 64 64" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- папка -->
+                                        <path
+                                            d="M6 20 Q6 16 10 16 L24 16 L28 12 L54 12 Q58 12 58 16 L58 52 Q58 56 54 56 L10 56 Q6 56 6 52 Z"
+                                            fill="#ffa726" />
+                                        <path d="M6 24 L58 24 L58 52 Q58 56 54 56 L10 56 Q6 56 6 52 Z" fill="#ffb74d" />
+                                        <!-- стрелка загрузки -->
+                                        <line x1="32" y1="44" x2="32" y2="30" stroke="white" stroke-width="2.5"
+                                            stroke-linecap="round" />
+                                        <polyline points="24,37 32,30 40,37" fill="none" stroke="white"
+                                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        <line x1="24" y1="48" x2="40" y2="48" stroke="white" stroke-width="2.5"
+                                            stroke-linecap="round" />
+                                    </svg>
+                                </div>
                                 <h3 data-tt="music_custom_name">Своя музыка</h3>
                                 <p data-tt="music_custom_desc">Загрузите MP3 файл</p>
                             </div>
-
                         </div>
+
                         <div class="customMusicUpload" id="customMusicUpload" style="display: none;">
                             <input type="file" name="" id="customMusicInput" class="customMusicInput">
                             <p data-tt="maxSize">Максимальный размер 10 МБ</p>
@@ -106,38 +237,36 @@
                         </div>
                         <button data-tt="applyBtn" id="ApplySelection" class="ApplySelection">Apply Selection</button>
                     </div>
-                </div>
-            </dialog>
 
-            <audio id="narcissusmusic" loop type="audio/mp3" src="music/Ruler_Of_My_Heart.mp3"></audio>
-            <audio id="yellowmusic" loop type="audio/mp3" src="music/MyClematis.mp3"></audio>
-            <audio id="runningman" loop type="audio/mp3" src="music/all_in.mp3"></audio>
+                    <audio id="narcissusmusic" loop type="audio/mp3" src="music/Ruler_Of_My_Heart.mp3"></audio>
+                    <audio id="yellowmusic" loop type="audio/mp3" src="music/MyClematis.mp3"></audio>
+                    <audio id="runningman" loop type="audio/mp3" src="music/all_in.mp3"></audio>
 
-            <!-- Модалка перерыва -->
-            <dialog id="breakModal" class="break-modal">
-                <div class="break-modal-inner">
-                    <h2> Время отдыха!</h2>
-                    <p>Таймер завершён — у тебя есть немного времени на игру</p>
-                    <div class="break-timer-display">
-                        Осталось: <span id="breakTimeLeft">7:00</span>
-                    </div>
+                    <!-- Модалка перерыва -->
+                    <dialog id="breakModal" class="break-modal">
+                        <div class="break-modal-inner">
+                            <h2> Время отдыха!</h2>
+                            <p>Таймер завершён — у тебя есть немного времени на игру</p>
+                            <div class="break-timer-display">
+                                Осталось: <span id="breakTimeLeft">7:00</span>
+                            </div>
 
-                    <!-- Выбор игры -->
-                    <div id="gameSelector">
-                        <p>Выбери игру:</p>
-                        <button id="playSnakeBtn"> Snake</button>
-                        <button id="playClawBtn">Claw Machine</button>
-                    </div>
+                            <!-- Выбор игры -->
+                            <div id="gameSelector">
+                                <p>Выбери игру:</p>
+                                <button id="playSnakeBtn"> Snake</button>
+                                <button id="playClawBtn">Claw Machine</button>
+                            </div>
 
-                    <!-- Iframe с игрой -->
-                    <div id="gameFrame" style="display:none;">
-                        <iframe id="snakeIframe" src=""
-                            style="width:700px; height:520px; border:none; border-radius:12px;"></iframe>
-                    </div>
+                            <!-- Iframe с игрой -->
+                            <div id="gameFrame" style="display:none;">
+                                <iframe id="snakeIframe" src=""
+                                    style="width:700px; height:520px; border:none; border-radius:12px;"></iframe>
+                            </div>
 
-                    <button id="closeBreakModal" class="close-break-btn">&times; Закрыть</button>
-                </div>
-            </dialog>
+                            <button id="closeBreakModal" class="close-break-btn">&times; Закрыть</button>
+                        </div>
+                    </dialog>
         </main>
     </div>
     <div class="menu">
@@ -154,7 +283,8 @@
             </div>
             <div style="display: none;" id="userBtn">
                 <button onclick="window.location.href='account.html'" data-tt="profile">Profile</button>
-                <button data-tt="sleepHelper" id="Sleephelper" onclick="window.location.href='Sleep_Helper.html'">Sleep Helper</button>
+                <button data-tt="sleepHelper" id="Sleephelper" onclick="window.location.href='Sleep_Helper.html'">Sleep
+                    Helper</button>
                 <button data-tt="logOut" id="logoutBtn">Log Out</button>
                 <button id="langToggleBtn">Русский</button>
 

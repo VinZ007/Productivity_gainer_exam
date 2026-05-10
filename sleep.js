@@ -48,13 +48,13 @@ const widgetsData = {
         images: ['img/sleep_helper/scolo.png', 'img/sleep_helper/private_album.png'],
     },
     japan: {
-        name: 'White Ferarri',
+        name: '505',
         subtitle: 'A4',
         music: document.getElementById('japanmusic'),
-        images: ['img/sleep_helper/fish.png', 'img/sleep_helper/private_album.png'],
+        images: ['img/sleep_helper/505.png', 'img/sleep_helper/505_album.png'],
     },
     raven: {
-        name: 'Scream My Name',
+        name: 'Do You Wanna Come Over',
         subtitle: 'A5',
         music: document.getElementById('ravenmusic'),
         images: ['img/sleep_helper/fish.png', 'img/sleep_helper/private_album.png'],
@@ -63,13 +63,13 @@ const widgetsData = {
         name: 'Tattoos',
         subtitle: 'A6',
         music: document.getElementById('jellyfishmusic'),
-        images: ['img/sleep_helper/fish.png', 'img/sleep_helper/private_album.png'],
+        images: ['img/sleep_helper/tattoos.png', 'img/sleep_helper/private_album.png'],
     },
     chihiro: {
         name: 'CHIHIRO',
         subtitle: 'A7',
         music: document.getElementById('chihiromusic'), 
-        images: ['img/sleep_helper/fish.png', 'img/sleep_helper/private_album.png'],
+        images: ['img/sleep_helper/chihiro.png', 'img/sleep_helper/private_album.png'],
     }
 };
 
