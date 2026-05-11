@@ -33,7 +33,7 @@ const widgetsData = {
         name: 'Art Deco',
         subtitle: 'A1',
         music: document.getElementById('fishmusic'),
-        images: ['img/sleep_helper/art_deco.png', 'img/sleep_helper/private_album.png'],
+        images: ['img/sleep_helper/art_deco.png', 'img/sleep_helper/Honeymoon.jpg'],
     },
     shark: {
         name: 'Private',
@@ -45,7 +45,7 @@ const widgetsData = {
         name: 'Your Mother Was Cheaper',
         subtitle: 'A3',
         music: document.getElementById('scolomusic'),
-        images: ['img/sleep_helper/scolo.png', 'img/sleep_helper/private_album.png'],
+        images: ['img/sleep_helper/scolo.png', 'img/sleep_helper/Fire.jpg'],
     },
     japan: {
         name: '505',
@@ -57,19 +57,19 @@ const widgetsData = {
         name: 'Do You Wanna Come Over',
         subtitle: 'A5',
         music: document.getElementById('ravenmusic'),
-        images: ['img/sleep_helper/fish.png', 'img/sleep_helper/private_album.png'],
+        images: ['img/sleep_helper/fish.png', 'img/sleep_helper/Jann.jpg'],
     },
     jellyfish: {
         name: 'Tattoos',
         subtitle: 'A6',
         music: document.getElementById('jellyfishmusic'),
-        images: ['img/sleep_helper/tattoos.png', 'img/sleep_helper/private_album.png'],
+        images: ['img/sleep_helper/tattoos.png', 'img/sleep_helper/SUPERSTAR.jpg'],
     },
     chihiro: {
         name: 'CHIHIRO',
         subtitle: 'A7',
         music: document.getElementById('chihiromusic'), 
-        images: ['img/sleep_helper/chihiro.png', 'img/sleep_helper/private_album.png'],
+        images: ['img/sleep_helper/chihiro.png', 'img/sleep_helper/chihiro_cover.jpg'],
     }
 };
 
