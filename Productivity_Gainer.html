@@ -20,7 +20,7 @@
                 </div>
                 <section class="userchoose">
                     <div class="timechoose" id="timechoose">
-                        <button data-time="600">10:00</button>
+                        <button data-time="10">10:00</button>
                         <button data-time="1200">20:00</button>
                         <button data-time="1800">30:00</button>
                     </div>
@@ -154,38 +154,41 @@
                         </div>
                         <button data-tt="applyBtn" id="ApplySelection" class="ApplySelection">Apply Selection</button>
                     </div>
+                </div>
 
-                    <audio id="narcissusmusic" loop type="audio/mp3" src="music/Ruler_Of_My_Heart.mp3"></audio>
-                    <audio id="yellowmusic" loop type="audio/mp3" src="music/MyClematis.mp3"></audio>
-                    <audio id="runningman" loop type="audio/mp3" src="music/all_in.mp3"></audio>
+                <audio id="narcissusmusic" loop type="audio/mp3" src="music/Ruler_Of_My_Heart.mp3"></audio>
+                <audio id="yellowmusic" loop type="audio/mp3" src="music/MyClematis.mp3"></audio>
+                <audio id="runningman" loop type="audio/mp3" src="music/all_in.mp3"></audio>
+            </dialog> <!-- Закрывающий тег диалога выбора виджета -->
 
-                    <!-- Модалка перерыва -->
-                    <dialog id="breakModal" class="break-modal">
-                        <div class="break-modal-inner">
-                            <h2> Время отдыха!</h2>
-                            <p>Таймер завершён — у тебя есть немного времени на игру</p>
-                            <div class="break-timer-display">
-                                Осталось: <span id="breakTimeLeft">7:00</span>
-                            </div>
+            <!-- Модальное окно перерыва (перенесено наружу) -->
+            <dialog id="breakModal" class="break-modal">
+                <div class="break-modal-inner">
+                    <h2>Время отдыха!</h2>
+                    <p>Таймер завершён — у тебя есть немного времени на игру</p>
+                    <div class="break-timer-display">
+                        Осталось: <span id="breakTimeLeft">7:00</span>
+                    </div>
 
-                            <!-- Выбор игры -->
-                            <div id="gameSelector">
-                                <p>Выбери игру:</p>
-                                <button id="playSnakeBtn"> Snake</button>
-                                <button id="playClawBtn">Claw Machine</button>
-                            </div>
+                    <!-- Выбор игры -->
+                    <div id="gameSelector">
+                        <p>Выбери игру:</p>
+                        <button id="playSnakeBtn">Snake</button>
+                        <button id="playClawBtn">Claw Machine</button>
+                    </div>
 
-                            <!-- Iframe с игрой -->
-                            <div id="gameFrame" style="display:none;">
-                                <iframe id="snakeIframe" src=""
-                                    style="width:700px; height:520px; border:none; border-radius:12px;"></iframe>
-                            </div>
+                    <!-- Iframe с игрой -->
+                    <div id="gameFrame" style="display:none;">
+                        <iframe id="snakeIframe" src=""
+                            style="width:700px; height:520px; border:none; border-radius:12px;" ></iframe>
+                    </div>
 
-                            <button id="closeBreakModal" class="close-break-btn">&times; Закрыть</button>
-                        </div>
-                    </dialog>
+                    <button id="closeBreakModal" class="close-break-btn">&times; Закрыть</button>
+                </div>
+            </dialog>
         </main>
     </div>
+
     <div class="menu">
         <div class="menu_handle" id="menu_handle">
             <i class="bi bi-arrow-left-circle"></i>
@@ -193,10 +196,9 @@
         </div>
         <div class="menu_content" id="menu_content">
             <div id="authBtn">
-                <button onclick="window.location.href='login.html'" data-tt="signIn">Sing In</button>
-                <button onclick="window.location.href='authorization.html'" data-tt="signUp">Sing Up</button>
+                <button onclick="window.location.href='login.html'" data-tt="signIn">Sign In</button>
+                <button onclick="window.location.href='authorization.html'" data-tt="signUp">Sign Up</button>
                 <button id="langToggle">Русский</button>
-
             </div>
             <div style="display: none;" id="userBtn">
                 <button onclick="window.location.href='account.html'" data-tt="profile">Profile</button>
@@ -204,13 +206,9 @@
                     Helper</button>
                 <button data-tt="logOut" id="logoutBtn">Log Out</button>
                 <button id="langToggleBtn">Русский</button>
-
             </div>
-
-            <footer>2026 |1 КУРС | БГТУ</footer>
-
+            <footer>2026 | 1 КУРС | БГТУ</footer>
         </div>
-
     </div>
 
     <!-- Обратная связь -->
@@ -263,7 +261,6 @@
                     <div class="leg leg-right"></div>
                 </div>
             </div>
-
             <div class="floor"></div>
         </section>
     </div>
