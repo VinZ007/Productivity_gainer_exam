@@ -57,7 +57,6 @@ body.sleep-body::before {
     
 }
 
-/* ── Title ── */
 .sleep-timer-title h1 {
     color: #c8b8f8;
     font-size: 2.8rem;
@@ -72,7 +71,6 @@ body.sleep-body::before {
         0 2px 4px rgba(0,0,0,0.5);
 }
 
-/* ── Time choose buttons ── */
 .sleep-timechoose {
     display: flex;
     justify-content: center;
@@ -103,7 +101,6 @@ body.sleep-body::before {
     box-shadow: 0 6px 16px rgba(120, 60, 200, 0.4);
 }
 
-/* ── Widget choose button ── */
 .sleep-plant {
     display: flex;
     justify-content: center;
@@ -254,7 +251,6 @@ body.sleep-body::before {
     padding: 28px 30px;
 }
 
-/* ── Now playing panel ── */
 .now-playing-panel {
     display: flex;
     align-items: center;
@@ -743,46 +739,348 @@ body.sleep-body::before {
     opacity: 1;
 }
 
+/* --- до 600px (планшеты и крупные телефоны) --- */
 @media (max-width: 600px) {
-    .jukebox-modal {
-        max-width: 95%;
-        max-height: 90vh;
-    }
+  .jukebox-modal {
+    max-width: 98%;
+    max-height: 85vh;
+    border-radius: 16px;
+  }
 
-    .sleep-timer-clock {
-        font-size: 2.8rem;
-        padding: 5px 30px;
-    }
+  .jukebox-header {
+    padding: 16px 20px;
+  }
 
-    .sleep-timer-title h1 {
-        font-size: 2rem;
-    }
+  .jukebox-neon-text {
+    font-size: 1.4rem;
+  }
 
-    .sleep-timechoose {
-        flex-direction: column;
-        gap: 10px;
-    }
+  .jukebox-body {
+    padding: 18px 20px;
+  }
 
-    .sleep-timechoose button {
-        width: 100%;
-    }
+  .now-playing-panel {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 14px;
+  }
 
-    .album-card {
-        width: 120px;
-        height: 160px;
-    }
+  .now-playing-cover {
+    width: 48px;
+    height: 48px;
+  }
 
-    .album-cover {
-        width: 120px !important;
-        height: 120px !important;
-    }
+  .now-playing-title {
+    font-size: 0.9rem;
+  }
 
-    .menu_content {
-        width: 250px;
-    }
+  .now-playing-sub {
+    font-size: 0.72rem;
+  }
+
+  .np-play-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+
+  .gallery {
+    padding: 12px 20px;
+    gap: 10px;
+  }
+
+  .album-card {
+    width: 120px;
+    height: 170px;
+  }
+
+  .album-cover {
+    width: 120px !important;
+    height: 140px !important;
+    border-radius: 14px;
+  }
+
+  .album-label {
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+
+  .ApplySelection {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .sleep-timer-clock {
+    font-size: 2.2rem;
+    padding: 5px 25px;
+  }
+
+  .sleep-timer-title h1 {
+    font-size: 1.8rem;
+  }
+
+  .sleep-timechoose {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sleep-timechoose button {
+    width: 100%;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .sleep-plant button,
+  .open-jukebox-btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+  }
+
+  .timer_time {
+    gap: 14px;
+  }
+
+  .sleep-page .timer_start,
+  .sleep-page .timer_reset,
+  .sleep-page .timer_stop {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .plant_container {
+    width: 240px;
+    height: 240px;
+  }
+
+  .menu_content {
+    width: 250px;
+  }
 }
 
-/* ── Modal Dialog Base ── */
+/* --- до 480px (средние телефоны) --- */
+@media (max-width: 480px) {
+  .sleep-page {
+    padding: 10px 0;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .sleep-timer-title h1 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+
+  .sleep-timer-clock {
+    font-size: 1.8rem;
+    padding: 4px 20px;
+    letter-spacing: 2px;
+  }
+
+  .plant_container {
+    width: 180px;
+    height: 180px;
+    margin: 5px 0;
+  }
+
+  .sleep-timechoose button {
+    height: 44px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+  }
+
+  .sleep-plant button,
+  .open-jukebox-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    max-width: 260px;
+  }
+
+  .timer_time {
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .sleep-page .timer_start,
+  .sleep-page .timer_reset,
+  .sleep-page .timer_stop {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+
+  /* Модальное окно */
+  .jukebox-modal {
+    width: 100%;
+    border-radius: 12px;
+    max-height: 90vh;
+  }
+
+  .jukebox-neon-text {
+    font-size: 1.3rem;
+  }
+
+  .jukebox-header {
+    padding: 12px 16px;
+  }
+
+  .jukebox-body {
+    padding: 14px 16px;
+  }
+
+  .now-playing-panel {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .now-playing-cover {
+    width: 42px;
+    height: 42px;
+  }
+
+  .now-playing-title {
+    font-size: 0.82rem;
+  }
+
+  .now-playing-sub {
+    font-size: 0.68rem;
+  }
+
+  .np-play-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
+  .gallery {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .album-card {
+    width: 100px;
+    height: 140px;
+  }
+
+  .album-cover {
+    width: 100px !important;
+    height: 120px !important;
+    border-radius: 12px;
+  }
+
+  .album-label {
+    font-size: 0.72rem;
+  }
+
+  .album-number {
+    font-size: 0.62rem;
+    padding: 2px 4px;
+    top: 6px;
+    right: 6px;
+  }
+
+  .ApplySelection {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  /* Меню */
+  .menu_handle {
+    width: 24px;
+  }
+
+  .menu_handle i {
+    font-size: 1.4rem;
+  }
+
+  .menu_content {
+    width: 220px;
+    padding: 20px 14px;
+  }
+
+  .menu_content button {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  /* BMO – уменьшаем и сдвигаем */
+  .bmo-body {
+    bottom: 10px;
+    left: 10px;
+    transform: scale(0.55);
+    transform-origin: left bottom;
+  }
+}
+ /* --- до 360px (очень маленькие экраны) --- */
+@media (max-width: 360px) {
+  .sleep-timer-title h1 {
+    font-size: 1.3rem;
+  }
+
+  .sleep-timer-clock {
+    font-size: 1.5rem;
+    padding: 3px 16px;
+    letter-spacing: 1.5px;
+  }
+
+  .sleep-timechoose button {
+    height: 40px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+
+  .sleep-plant button,
+  .open-jukebox-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
+
+  .plant_container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .timer_time {
+    gap: 8px;
+  }
+
+  .sleep-page .timer_start,
+  .sleep-page .timer_reset,
+  .sleep-page .timer_stop {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
+  /* Галерея модалки */
+  .album-card {
+    width: 80px;
+    height: 110px;
+  }
+
+  .album-cover {
+    width: 80px !important;
+    height: 90px !important;
+  }
+
+  .album-label {
+    font-size: 0.65rem;
+  }
+
+  .now-playing-title {
+    font-size: 0.75rem;
+  }
+
+  /* BMO ещё меньше */
+  .bmo-body {
+    transform: scale(0.45);
+    bottom: 5px;
+    left: 5px;
+  }
+}
+
 dialog[open] {
     display: flex !important;
     align-items: center;
